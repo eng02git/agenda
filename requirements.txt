@@ -2,3 +2,4 @@ streamlit==0.83.0
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
+streamlit_autorefresh
