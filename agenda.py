@@ -30,7 +30,7 @@ def main():
 	# created automatically when the authorization flow completes for the first
 	# time.
 	#if os.path.exists('token.json'):
-	key_dict = json.loads(st.secrets["credentials"])
+	key_dict = json.loads(st.secrets["text_key"])
 	creds = Credentials.from_authorized_user_file(key_dict, SCOPES)
 	# If there are no (valid) credentials available, let the user log in.
 	if not creds or not creds.valid:
