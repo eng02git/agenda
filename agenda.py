@@ -11,6 +11,7 @@ from streamlit_autorefresh import st_autorefresh
 import time
 import json
 import pyrebase
+import jwt
 
 st.set_page_config(
 	page_title="Calendar",
