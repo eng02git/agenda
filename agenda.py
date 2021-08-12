@@ -10,39 +10,11 @@ import streamlit.components.v1 as components
 from streamlit_autorefresh import st_autorefresh
 import time
 import json
-import pyrebase
-import jwt
 
 st.set_page_config(
 	page_title="Calendar",
 	layout="wide",
 )
-
-from google.cloud import storage
-
-def download_blob(bucket_name, source_blob_name, destination_file_name):
-    """Downloads a blob from the bucket."""
-    # bucket_name = "your-bucket-name"
-    # source_blob_name = "storage-object-name"
-    # destination_file_name = "local/path/to/file"
-
-    storage_client = storage.Client()
-
-    bucket = storage_client.bucket(bucket_name)
-
-    # Construct a client side representation of a blob.
-    # Note `Bucket.blob` differs from `Bucket.get_blob` as it doesn't retrieve
-    # any content from Google Cloud Storage. As we don't need additional data,
-    # using `Bucket.blob` is preferred here.
-    blob = bucket.blob(source_blob_name)
-    blob.download_to_filename(destination_file_name)
-
-    print(
-        "Blob {} downloaded to {}.".format(
-            source_blob_name, destination_file_name
-        )
-    )
-
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
@@ -54,11 +26,6 @@ def main():
 	
 	#download_blob('lid-rastr-55a66.appspot.com', 'credentials.json', 'credentials.json')
 	creds = None
-	# The file token.json stores the user's access and refresh tokens, and is
-	# created automatically when the authorization flow completes for the first
-	# time.
-	#if os.path.exists('token.json'):
-	creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 		
 	# If there are no (valid) credentials available, let the user log in.
 	if not creds or not creds.valid:
@@ -68,10 +35,6 @@ def main():
 			flow = InstalledAppFlow.from_client_secrets_file(
 				'credentials.json', SCOPES)
 			creds = flow.run_local_server(port=0)
-			
-		# Save the credentials for the next run
-		#with open('token.json', 'w') as token:
-			#token.write(creds.to_json())
 
 	service = build('calendar', 'v3', credentials=creds)
 
