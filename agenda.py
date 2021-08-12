@@ -26,7 +26,7 @@ config = {
     "storageBucket": "lid-rastr-55a66.appspot.com",
     "messagingSenderId": "966561026515",
     "appId": "1:966561026515:web:0e5c6e3f033fa05a101f26",
-    "measurementId": "G-KR5D9LJDHP"
+    "measurementId": "G-KR5D9LJDHP",
     "serviceAccount": "path/to/serviceAccountCredentials.json"
 }
 
