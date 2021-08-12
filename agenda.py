@@ -89,10 +89,22 @@ def main():
 	ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 	ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 	dia, semana = st.columns(2)
-	dia1, dia2, dia3, dia4, semana1, semana2, semana3, semana4 = st.columns(8)
+	dia1, dia2, dia3, dia4, semana1, semana2, semana3, semana4 = st.columns([5,1,5,1,5,1,5,1])
 	
 	dia.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 	semana.subheader('Eventos da semana :spiral_calendar_pad:')
+	
+	# eventos fixos
+	
+	dia1.info('** Reunião diária do PAF    **')
+	dia1.info('** Reunião diária engenharia**')
+	dia1.info('** Reunião de produtividade **')
+	dia1.info('** Reunião da L751          **')
+	dia1.info('** Reunião matinal logística**')
+	dia1.info('** Reunião da L752          **')
+	dia1.info('** Reunião de planejamento  **')
+
+	
 
 	# index das colunas
 	index = 0
