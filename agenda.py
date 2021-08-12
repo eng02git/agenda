@@ -59,7 +59,7 @@ def main():
 	tit, update = st.columns([8,2])
 	
 	tit.title(titulo)	
-	update.subheader('Última atualização: ' + atualizacao)
+	update.write('Última atualização: ' + atualizacao)
 	
 	# organizacao do sidebar
 	automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
