@@ -19,19 +19,6 @@ st.set_page_config(
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-@st.cache
-def teste():
-	creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-
-	# If there are no (valid) credentials available, let the user log in.
-	if not creds or not creds.valid:
-		if creds and creds.expired and creds.refresh_token:
-			creds.refresh(Request())
-		else:
-			flow = InstalledAppFlow.from_client_secrets_file(
-				'credentials.json', SCOPES)
-			creds = flow.run_local_server(port=0)
-	return creds
 
 def main():
 	"""Shows basic usage of the Google Calendar API.
@@ -67,7 +54,12 @@ def main():
 	mes = (now_date.month-1)
 	diadasemana = now_date.weekday()
 	titulo = Diasemana[int(diadasemana)] + ', ' + now_date.strftime("%d") + ' de ' + Meses[int(mes)] + ' de ' + now_date.strftime("%Y")
-	st.title(titulo)	
+	atualizacao = now_date.strftime("%H:%M:%S")
+	
+	tit, update = st.columns([8,2])
+	
+	tit.title(titulo)	
+	update.subheader('Última atualização: ' + atualizacao)
 	
 	# organizacao do sidebar
 	automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
@@ -93,7 +85,9 @@ def main():
 	st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
 	ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 	ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
-	dia, semana = st.columns(2)	
+	dia, semana = st.columns(2)
+	dia1, dia2, dia3, dia4, semana1, semana2, semana3, semana4 = st.columns(8)
+	
 	dia.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 	semana.subheader('Eventos da semana :spiral_calendar_pad:')
 
