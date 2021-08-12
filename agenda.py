@@ -88,8 +88,8 @@ def main():
 	st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
 	ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 	ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
-	dia, semana = st.columns([7, 17])
-	dia1, dia2, semana1, semana2, semana3, semana4 = st.columns([4,3,9,2,5,1])
+	dia, semana = st.columns([8, 17])
+	dia1, dia2, esp, semana1, semana2, semana3, semana4 = st.columns([4,3,1,9,2,5,1])
 	
 	dia.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 	semana.subheader('Eventos da semana :spiral_calendar_pad:')
