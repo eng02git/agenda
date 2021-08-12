@@ -96,13 +96,13 @@ def main():
 	
 	# eventos fixos
 	
-	dia1.info('** Reunião diária do PAF    **')
-	dia1.info('** Reunião diária engenharia**')
-	dia1.info('** Reunião de produtividade **')
-	dia1.info('** Reunião da L751          **')
-	dia1.info('** Reunião matinal logística**')
-	dia1.info('** Reunião da L752          **')
-	dia1.info('** Reunião de planejamento  **')
+	dia1.warning('** Reunião diária do PAF    **')
+	dia1.warning('** Reunião diária engenharia**')
+	dia1.warning('** Reunião de produtividade **')
+	dia1.warning('** Reunião da L751          **')
+	dia1.warning('** Reunião matinal logística**')
+	dia1.warning('** Reunião da L752          **')
+	dia1.warning('** Reunião de planejamento  **')
 
 	
 
