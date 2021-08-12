@@ -36,11 +36,10 @@ firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
 path_on_cloud = "credentials.json"
-storage.child(path_on_cloud).download("credentials.json")
+#storage.child(path_on_cloud).download("credentials.json")
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
-
 
 def main():
 	"""Shows basic usage of the Google Calendar API.
@@ -51,8 +50,8 @@ def main():
 	# created automatically when the authorization flow completes for the first
 	# time.
 	if os.path.exists('token.json'):
-	#key_dict = json.loads(st.secrets["text_key"])
 		creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+		
 	# If there are no (valid) credentials available, let the user log in.
 	if not creds or not creds.valid:
 		if creds and creds.expired and creds.refresh_token:
