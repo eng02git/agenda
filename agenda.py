@@ -88,29 +88,32 @@ def main():
 	st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
 	ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 	ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
-	dia, semana = st.columns([8, 17])
-	dia1, dia2, esp, semana1, semana2, semana3, semana4 = st.columns([2.5,3.5,1,9,2,5,1])
+	dia, semana = st.columns([2, 6])
+	dia1_1, dia1_2, esp1 = st.columns([1,1,6])
+	dia2_1, dia2_2, esp2 = st.columns([1,1,6])
+	dia3_1, dia3_2, esp3 = st.columns([1,1,6])
+	dia4_1, dia4_2, esp4 = st.columns([1,1,6])
 	
 	dia.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 	semana.subheader('Eventos da semana :spiral_calendar_pad:')
 	
 	# eventos fixos
 	
-	dia2.warning('** Reunião diária do PAF    **')
-	dia2.warning('** Reunião diária engenharia**')
-	dia2.warning('** Reunião de produtividade **')
-	dia2.warning('** Reunião da L751          **')
-	dia2.warning('** Reunião matinal logística**')
-	dia2.warning('** Reunião da L752          **')
-	dia2.warning('** Reunião de planejamento  **')
+	dia1_1.warning('** Reunião diária do PAF    **')
+	dia1_2.warning('** Reunião diária engenharia**')
+	dia2_1.warning('** Reunião de produtividade **')
+	dia2_2.warning('** Reunião da L751          **')
+	dia3_1.warning('** Reunião matinal logística**')
+	dia3_2.warning('** Reunião da L752          **')
+	dia4_1.warning('** Reunião de planejamento  **')
 	
-	dia1.warning('** :clock2: 08:30 - 08:45 **')
-	dia1.warning('** :clock2: 08:40 - 09:00 **')
-	dia1.warning('** :clock2: 09:00 - 09:40 **')
-	dia1.warning('** :clock2: 09:40 - 10:20 **')
-	dia1.warning('** :clock2: 10:30 - 10:30 **')
-	dia1.warning('** :clock2: 10:20 - 11:00 **')
-	dia1.warning('** :clock2: 11:00 - 11:30 **')
+	dia1_1.warning('** :clock2: 08:30 - 08:45 **')
+	dia1_2.warning('** :clock2: 08:40 - 09:00 **')
+	dia2_1.warning('** :clock2: 09:00 - 09:40 **')
+	dia2_2.warning('** :clock2: 09:40 - 10:20 **')
+	dia3_1.warning('** :clock2: 10:30 - 10:30 **')
+	dia3_2.warning('** :clock2: 10:20 - 11:00 **')
+	dia4_1.warning('** :clock2: 11:00 - 11:30 **')
 	
 
 	# index das colunas
