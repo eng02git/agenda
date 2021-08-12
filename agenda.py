@@ -17,6 +17,23 @@ st.set_page_config(
 	layout="wide",
 )
 
+config = {
+    "apiKey": "AIzaSyBn2VArLQx0z6ChrD5fB52Zo_eTDBysBF8",
+    "authDomain": "lid-rastr-55a66.firebaseapp.com",
+    "projectId": "lid-rastr-55a66",
+    "storageBucket": "lid-rastr-55a66.appspot.com",
+    "messagingSenderId": "966561026515",
+    "appId": "1:966561026515:web:0e5c6e3f033fa05a101f26",
+    "measurementId": "G-KR5D9LJDHP"
+}
+
+firebase = pyrebase.initialize_app(config)
+storage = firebase.storage()
+
+path_on_cloud = "credentials.json"
+storage.child(path_on_cloud).download(variavel)
+
+st.write(variavel)
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
