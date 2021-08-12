@@ -19,13 +19,8 @@ st.set_page_config(
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-def main():
-	"""Shows basic usage of the Google Calendar API.
-	st.writes the start and name of the next 10 events on the user's calendar.
-	"""
-	
-	#download_blob('lid-rastr-55a66.appspot.com', 'credentials.json', 'credentials.json')
-	#creds = None
+@st.cache
+def teste():
 	creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
 	# If there are no (valid) credentials available, let the user log in.
@@ -36,6 +31,14 @@ def main():
 			flow = InstalledAppFlow.from_client_secrets_file(
 				'credentials.json', SCOPES)
 			creds = flow.run_local_server(port=0)
+	return creds
+
+def main():
+	"""Shows basic usage of the Google Calendar API.
+	st.writes the start and name of the next 10 events on the user's calendar.
+	"""
+
+	creds = teste()
 
 	service = build('calendar', 'v3', credentials=creds)
 
