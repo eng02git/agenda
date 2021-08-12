@@ -18,26 +18,31 @@ st.set_page_config(
 	layout="wide",
 )
 
-key_dict = json.loads(st.secrets["textkey"])
-credentials_json = json.loads(st.secrets["text_key"])
+from google.cloud import storage
 
-config = {
-    "apiKey": "AIzaSyBn2VArLQx0z6ChrD5fB52Zo_eTDBysBF8",
-    "authDomain": "lid-rastr-55a66.firebaseapp.com",
-    "databaseURL": "https://lid-rastr-55a66.firebaseio.com",
-    "projectId": "lid-rastr-55a66",
-    "storageBucket": "lid-rastr-55a66.appspot.com",
-    "messagingSenderId": "966561026515",
-    "appId": "1:966561026515:web:0e5c6e3f033fa05a101f26",
-    "measurementId": "G-KR5D9LJDHP",
-    "serviceAccount": key_dict,
-}
+def download_blob(bucket_name, source_blob_name, destination_file_name):
+    """Downloads a blob from the bucket."""
+    # bucket_name = "your-bucket-name"
+    # source_blob_name = "storage-object-name"
+    # destination_file_name = "local/path/to/file"
 
-firebase = pyrebase.initialize_app(config)
-storage = firebase.storage()
+    storage_client = storage.Client()
 
-path_on_cloud = "credentials.json"
-#storage.child(path_on_cloud).download("credentials.json")
+    bucket = storage_client.bucket(bucket_name)
+
+    # Construct a client side representation of a blob.
+    # Note `Bucket.blob` differs from `Bucket.get_blob` as it doesn't retrieve
+    # any content from Google Cloud Storage. As we don't need additional data,
+    # using `Bucket.blob` is preferred here.
+    blob = bucket.blob(source_blob_name)
+    blob.download_to_filename(destination_file_name)
+
+    print(
+        "Blob {} downloaded to {}.".format(
+            source_blob_name, destination_file_name
+        )
+    )
+
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
@@ -46,6 +51,8 @@ def main():
 	"""Shows basic usage of the Google Calendar API.
 	st.writes the start and name of the next 10 events on the user's calendar.
 	"""
+	
+	download_blob('lid-rastr-55a66.appspot.com', 'credentials.json', 'credentials.json')
 	creds = None
 	# The file token.json stores the user's access and refresh tokens, and is
 	# created automatically when the authorization flow completes for the first
@@ -59,19 +66,17 @@ def main():
 			creds.refresh(Request())
 		else:
 			flow = InstalledAppFlow.from_client_secrets_file(
-				json.dumps(credentials_json).encode('utf-8'), SCOPES)
-			
+				'credentials.json', SCOPES)
 			creds = flow.run_local_server(port=0)
 		# Save the credentials for the next run
-		#with open('token.json', 'w') as token:
-			#token.write(creds.to_json())
+		with open('token.json', 'w') as token:
+			token.write(creds.to_json())
 
 	service = build('calendar', 'v3', credentials=creds)
 
 	# Call the Calendar API
 	now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
 	now_date = datetime.datetime.utcnow()
-	#st.write('Getting the upcoming 10 events')
 	events_result = service.events().list(calendarId='primary', timeMin=now,
 										maxResults=10, singleEvents=True,
 										orderBy='startTime').execute()
