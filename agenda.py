@@ -18,6 +18,8 @@ st.set_page_config(
 	layout="wide",
 )
 
+key_dict = json.loads(st.secrets["textkey"])
+
 config = {
     "apiKey": "AIzaSyBn2VArLQx0z6ChrD5fB52Zo_eTDBysBF8",
     "authDomain": "lid-rastr-55a66.firebaseapp.com",
@@ -27,7 +29,7 @@ config = {
     "messagingSenderId": "966561026515",
     "appId": "1:966561026515:web:0e5c6e3f033fa05a101f26",
     "measurementId": "G-KR5D9LJDHP",
-    "serviceAccount": "path/to/serviceAccountCredentials.json"
+    "serviceAccount": key_dict,
 }
 
 firebase = pyrebase.initialize_app(config)
