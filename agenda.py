@@ -139,7 +139,7 @@ def main():
 				except:
 					ev0.error('Evento sem informacao')
 					
-				with ev0_:
+				with ev0:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
