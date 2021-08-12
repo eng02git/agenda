@@ -96,21 +96,21 @@ def main():
 	
 	# eventos fixos
 	
-	dia1.warning('** Reunião diária do PAF    **')
-	dia1.warning('** Reunião diária engenharia**')
-	dia1.warning('** Reunião de produtividade **')
-	dia1.warning('** Reunião da L751          **')
-	dia1.warning('** Reunião matinal logística**')
-	dia1.warning('** Reunião da L752          **')
-	dia1.warning('** Reunião de planejamento  **')
+	dia2.warning('** Reunião diária do PAF    **')
+	dia2.warning('** Reunião diária engenharia**')
+	dia2.warning('** Reunião de produtividade **')
+	dia2.warning('** Reunião da L751          **')
+	dia2.warning('** Reunião matinal logística**')
+	dia2.warning('** Reunião da L752          **')
+	dia2.warning('** Reunião de planejamento  **')
 	
-	dia2.warning('** :clock2: 08:30 - 08:45 **')
-	dia2.warning('** :clock2: 08:40 - 09:00 **')
-	dia2.warning('** :clock2: 09:00 - 09:40 **')
-	dia2.warning('** :clock2: 09:40 - 10:20 **')
-	dia2.warning('** :clock2: 10:30 - 10:30 **')
-	dia2.warning('** :clock2: 10:20 - 11:00 **')
-	dia2.warning('** :clock2: 11:00 - 11:30 **')
+	dia1.warning('** :clock2: 08:30 - 08:45 **')
+	dia1.warning('** :clock2: 08:40 - 09:00 **')
+	dia1.warning('** :clock2: 09:00 - 09:40 **')
+	dia1.warning('** :clock2: 09:40 - 10:20 **')
+	dia1.warning('** :clock2: 10:30 - 10:30 **')
+	dia1.warning('** :clock2: 10:20 - 11:00 **')
+	dia1.warning('** :clock2: 11:00 - 11:30 **')
 	
 
 	# index das colunas
