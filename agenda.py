@@ -21,6 +21,7 @@ st.set_page_config(
 config = {
     "apiKey": "AIzaSyBn2VArLQx0z6ChrD5fB52Zo_eTDBysBF8",
     "authDomain": "lid-rastr-55a66.firebaseapp.com",
+    "databaseURL": "https://lid-rastr-55a66.firebaseio.com",
     "projectId": "lid-rastr-55a66",
     "storageBucket": "lid-rastr-55a66.appspot.com",
     "messagingSenderId": "966561026515",
