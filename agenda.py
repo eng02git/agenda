@@ -52,7 +52,7 @@ def main():
 	st.writes the start and name of the next 10 events on the user's calendar.
 	"""
 	
-	download_blob('lid-rastr-55a66.appspot.com', 'credentials.json', 'credentials.json')
+	#download_blob('lid-rastr-55a66.appspot.com', 'credentials.json', 'credentials.json')
 	creds = None
 	# The file token.json stores the user's access and refresh tokens, and is
 	# created automatically when the authorization flow completes for the first
