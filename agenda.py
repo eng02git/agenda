@@ -33,9 +33,8 @@ firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
 path_on_cloud = "credentials.json"
-storage.child(path_on_cloud).download(variavel)
+storage.child(path_on_cloud).download("credentials.json")
 
-st.write(variavel)
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
