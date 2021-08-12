@@ -160,7 +160,7 @@ def main():
 				except:
 					ev1.error('Evento sem informacao')
 					
-				with ev1_:
+				with ev1:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -182,7 +182,7 @@ def main():
 				except:
 					ev2.error('Evento sem informacao')
 					
-				with ev2_:
+				with ev2:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -204,7 +204,7 @@ def main():
 				except:
 					ev3.error('Evento sem informacao')
 					
-				with ev3_:
+				with ev3:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -225,7 +225,7 @@ def main():
 				except:
 					ev4.error('Evento sem informacao')
 					
-				with ev4_:
+				with ev4:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -246,7 +246,7 @@ def main():
 				except:
 					ev5.error('Evento sem informacao')
 					
-				with ev5_:
+				with ev5:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -268,7 +268,7 @@ def main():
 				except:
 					ev6.error('Evento sem informacao')
 					
-				with ev6_:
+				with ev6:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -289,7 +289,7 @@ def main():
 				except:
 					ev7.error('Evento sem informacao')
 					
-				with ev7_:
+				with ev7:
 					with st.expander('Detalhes do evento'):
 						# organizador
 						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
