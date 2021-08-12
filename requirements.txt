@@ -5,3 +5,4 @@ google-auth-oauthlib
 streamlit_autorefresh
 pyrebase
 jwt
+google-cloud-storage
