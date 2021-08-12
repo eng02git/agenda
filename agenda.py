@@ -54,7 +54,8 @@ def main():
 	mes = (now_date.month-1)
 	diadasemana = now_date.weekday()
 	titulo = Diasemana[int(diadasemana)] + ', ' + now_date.strftime("%d") + ' de ' + Meses[int(mes)] + ' de ' + now_date.strftime("%Y")
-	atualizacao = now_date.strftime("%H:%M:%S")
+	atualizacao_h = now_date - timedelta(hours=3, minutes=0)
+	atualizacao = atualizacao_h.strftime("%H:%M:%S")
 	
 	tit, update = st.columns([8,2])
 	
