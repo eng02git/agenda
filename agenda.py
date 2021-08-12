@@ -25,8 +25,9 @@ def main():
 	"""
 	
 	#download_blob('lid-rastr-55a66.appspot.com', 'credentials.json', 'credentials.json')
-	creds = None
-		
+	#creds = None
+	creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+
 	# If there are no (valid) credentials available, let the user log in.
 	if not creds or not creds.valid:
 		if creds and creds.expired and creds.refresh_token:
