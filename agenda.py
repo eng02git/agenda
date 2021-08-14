@@ -95,8 +95,8 @@ def main():
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
 		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
-		st, st, st, st, st, st, st, st = st.columns(8)
-		st_, st_, st_, st_, st_, st_, st_, st_ = st.columns(8)
+		#st, st, st, st, st, st, st, st = st.columns(8)
+		#st_, st_, st_, st_, st_, st_, st_, st_ = st.columns(8)
 		#dia, semana = st.columns([2, 6])
 		
 	# eventos da semana
