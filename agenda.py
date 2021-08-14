@@ -78,6 +78,8 @@ def main():
 		#elif agenda == 'Semanal':
 		#	st.session_state['key'] = 2
 		pass
+	else:
+		minutos = st.sidebar.number_input('Intervalo de refresh em minutos', min_value=1, max_value=10, value=5)
 	
 	# difine um estado inicial para as telas
 	if 'key' not in st.session_state:
@@ -146,7 +148,18 @@ def main():
 		date_generated = [now_date + datetime.timedelta(days=x) for x in range(1, restante)]
 
 		for date in date_generated:
-   			 st.write(date.strftime("%d-%m-%Y"))
+			
+			# formato da data
+			formater = "%Y-%m-%dT%H:%M:%S"
+
+			# formata data inicial
+			start_time = event['start'].get('dateTime', event['start'].get('date'))
+			t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
+
+			# formata data final
+			end_time = event['end'].get('dateTime', event['end'].get('date'))
+			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+
 				
 		
 
@@ -369,15 +382,17 @@ def main():
 		
 	if automatico == 'Sim' and st.session_state.key > 3:
 		st.session_state.key = 1
-			
+		
+	# update every  mins
+	st_autorefresh(interval=minutos * 60 * 1000, key="dataframerefresh")
 			
 	
 if __name__ == '__main__':
-	minutos = st.sidebar.number_input('Intervalo de refresh em minutos', min_value=1, max_value=10, value=5)
+	
 	main()
 	
 	# update every  mins
-	st_autorefresh(interval=minutos * 60 * 1000, key="dataframerefresh")
+	
 	
 	# carrega pagina html
 	#htmlfile = open('card1.html', 'r', encoding='utf-8')
