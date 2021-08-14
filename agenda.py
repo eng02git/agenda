@@ -151,7 +151,7 @@ def main():
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
-		date = st.sidebar.selectbox('Dia da semana', date_generated)
+		data_selecionada = st.sidebar.selectbox('Dia da semana', date_generated)
 		
 		for event in events:
 			# formato da data
@@ -168,7 +168,7 @@ def main():
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
 					
-			if t_start.day == date.day:
+			if t_start.day == data_selecionada.day:
 				try:	
 					st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
 					st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
