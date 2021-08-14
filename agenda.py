@@ -139,216 +139,217 @@ def main():
 
 	# index das colunas
 	index = 0
-	for event in events:
-	
-		# formato da data
-		formater = "%Y-%m-%dT%H:%M:%S"
-		
-		# formata data inicial
-		start_time = event['start'].get('dateTime', event['start'].get('date'))
-		t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
-		
-		# formata data final
-		end_time = event['end'].get('dateTime', event['end'].get('date'))
-		t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)	
-		
-		# maximo de 8 eventos simultaneos
-		if t_start.day == now_date.day:
-			if index == 0:
-				try:	
-					#ev0.markdown()
-					ev0.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev0.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev0.error('Evento sem informacao')
-					
-				with ev0:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.info(dados)
-			
-			if index == 1:
-				try:	
-					#ev1.markdown()
-					ev1.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev1.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev1.error('Evento sem informacao')
-					
-				with ev1:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.info(dados)
-						
-			
-			if index == 2:
-				try:	
-					#ev2.markdown()
-					ev2.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev2.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev2.error('Evento sem informacao')
-					
-				with ev2:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.info(dados)
-						
+	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
+		for event in events:
 
-			if index == 3:
-				try:	
-					#ev3.markdown()
-					ev3.info(t_start.strftime(":clock3:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev3.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev3.error('Evento sem informacao')
-					
-				with ev3:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.info(dados)
-						
-			if index == 4:
-				try:	
-					#ev4.markdown()
-					ev4.info(t_start.strftime(":clock4:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev4.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev4.error('Evento sem informacao')
-					
-				with ev4:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.info(dados)
-						
-			if index == 5:
-				try:	
-					#ev5.markdown()
-					ev5.info(t_start.strftime(":clock5:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev5.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev5.error('Evento sem informacao')
-					
-				with ev5:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.info(dados)
-												
+			# formato da data
+			formater = "%Y-%m-%dT%H:%M:%S"
 
-			if index == 6:
-				try:	
-					#ev6.markdown()
-					ev6.info(t_start.strftime(":clock6:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev6.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev6.error('Evento sem informacao')
-					
-				with ev6:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.info(dados)
-						
-			if index == 7:
-				try:	
-					#ev7.markdown()
-					ev7.error(t_start.strftime(":clock7:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					ev7.error(':grey_exclamation: ' + '**' + event['summary'] + '**')
-					
-				except:
-					ev7.error('Evento sem informacao')
-					
-				with ev7:
-					with st.expander('Detalhes do evento'):
-						# organizador
-						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-						
-						# pessoas
-						attendees = event['attendees']
-						dados += '**Pessoas: \n **'
-						for people in attendees:
-							dados += '\n' + people['email'].split('@')[0]
-						st.error(dados)
-						
-			index += 1	
+			# formata data inicial
+			start_time = event['start'].get('dateTime', event['start'].get('date'))
+			t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
+
+			# formata data final
+			end_time = event['end'].get('dateTime', event['end'].get('date'))
+			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)	
+
+			# maximo de 8 eventos simultaneos
+			if t_start.day == now_date.day:
+				if index == 0:
+					try:	
+						#ev0.markdown()
+						ev0.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev0.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev0.error('Evento sem informacao')
+
+					with ev0:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.info(dados)
+
+				if index == 1:
+					try:	
+						#ev1.markdown()
+						ev1.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev1.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev1.error('Evento sem informacao')
+
+					with ev1:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.info(dados)
+
+
+				if index == 2:
+					try:	
+						#ev2.markdown()
+						ev2.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev2.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev2.error('Evento sem informacao')
+
+					with ev2:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.info(dados)
+
+
+				if index == 3:
+					try:	
+						#ev3.markdown()
+						ev3.info(t_start.strftime(":clock3:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev3.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev3.error('Evento sem informacao')
+
+					with ev3:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.info(dados)
+
+				if index == 4:
+					try:	
+						#ev4.markdown()
+						ev4.info(t_start.strftime(":clock4:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev4.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev4.error('Evento sem informacao')
+
+					with ev4:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.info(dados)
+
+				if index == 5:
+					try:	
+						#ev5.markdown()
+						ev5.info(t_start.strftime(":clock5:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev5.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev5.error('Evento sem informacao')
+
+					with ev5:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.info(dados)
+
+
+				if index == 6:
+					try:	
+						#ev6.markdown()
+						ev6.info(t_start.strftime(":clock6:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev6.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev6.error('Evento sem informacao')
+
+					with ev6:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.info(dados)
+
+				if index == 7:
+					try:	
+						#ev7.markdown()
+						ev7.error(t_start.strftime(":clock7:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						ev7.error(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+					except:
+						ev7.error('Evento sem informacao')
+
+					with ev7:
+						with st.expander('Detalhes do evento'):
+							# organizador
+							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+							# pessoas
+							attendees = event['attendees']
+							dados += '**Pessoas: \n **'
+							for people in attendees:
+								dados += '\n' + people['email'].split('@')[0]
+							st.error(dados)
+
+				index += 1	
 								
 		# eventos do dia que nao estao acontecendo agora
-		if t_start > now_date and t_start.day == now_date.day:
+		#if t_start > now_date and t_start.day == now_date.day:
 			
 			#dia.info('Evento')
 			
-			try:
-				dia.write('Evento: ' + event['summary'] + ' Inicio: ' + t_start.strftime('%H:%M') + ' Fim: ' + t_end.strftime('%H:%M'))
-			except:
-				dia.error('Evento sem informacao')			
+		#	try:
+		#		dia.write('Evento: ' + event['summary'] + ' Inicio: ' + t_start.strftime('%H:%M') + ' Fim: ' + t_end.strftime('%H:%M'))
+		#	except:
+		#		dia.error('Evento sem informacao')			
 		
 		# demais eventos da semana
-		if t_start.day > now_date.day:
+		#if t_start.day > now_date.day:
 	
 			#semana.info('Evento')
 			
-			try:
-				semana.write('Evento: ' + event['summary'])
-			except:
-				semana.error('Evento sem informacao')
+		#	try:
+		#		semana.write('Evento: ' + event['summary'])
+		#	except:
+		#		semana.error('Evento sem informacao')
 		
-			semana.write('Inicio: ' + t_start.strftime('%d-%m-%Y Hora: %H:%M'))
-			semana.write('Fim: ' + t_end.strftime('%d-%m-%Y Hora: %H:%M'))
+		##	semana.write('Inicio: ' + t_start.strftime('%d-%m-%Y Hora: %H:%M'))
+		#	semana.write('Fim: ' + t_end.strftime('%d-%m-%Y Hora: %H:%M'))
 				
 	if automatico == 'Sim':	
 		st.session_state.key += 1
