@@ -152,7 +152,7 @@ def main():
 		st.write((6 - dia_atual_semana + st.session_state.key - 1))
 		for event in events:
 			# formato da data
-			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 1)]
+			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 2)]
 			
 			formater = "%Y-%m-%dT%H:%M:%S"
 
