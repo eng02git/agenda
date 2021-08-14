@@ -152,7 +152,7 @@ def main():
 		
 		lista_datas = []
 		for valor in date_generated:
-			lista_datas = date_generated.strftime("%d-%m-%Y)
+			lista_datas = valor.strftime("%d-%m-%Y)
 							      
 		date = st.sidebar.selectbox('Dia da semana', lista_datas)
 		
