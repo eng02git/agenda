@@ -103,37 +103,37 @@ def main():
 
 		# eventos fixos
 		st.warning('** :clock2: 08:30 - 08:45 **')
-		st.warning('** Reunião diária do PAF    **')
+		st.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 
 		st.warning('** :clock2: 08:40 - 09:00 **')
-		st.warning('** Reunião diária engenharia**')
+		st.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 
 		st.warning('** :clock2: 09:00 - 09:40 **')
-		st.warning('** Reunião de produtividade **')
+		st.warning(':grey_exclamation: ' + '** Reunião de produtividade **')
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 
 		st.warning('** :clock2: 09:40 - 10:20 **')
-		st.warning('** Reunião da L751          **')
+		st.warning(':grey_exclamation: ' + '** Reunião da L751          **')
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 
 		st.warning('** :clock2: 10:30 - 10:30 **')
-		st.warning('** Reunião matinal logística**')
+		st.warning(':grey_exclamation: ' + '** Reunião matinal logística**')
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 
 		st.warning('** :clock2: 10:20 - 11:00 **')
-		st.warning('** Reunião da L752          **')
+		st.warning(':grey_exclamation: ' + '** Reunião da L752          **')
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 
 		st.warning('** :clock2: 11:00 - 11:30 **')
-		st.warning('** Reunião de planejamento  **')	
+		st.warning(':grey_exclamation: ' + '** Reunião de planejamento  **')	
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 
@@ -148,14 +148,14 @@ def main():
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
-
+		date = st.sidebar.selectbox('Dia da semana', date_generated)
+		
 		for event in events:
 			# formato da data
 			formater = "%Y-%m-%dT%H:%M:%S"
 			
 			# dia para mostrar na tela
 			#date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
-			date = st.sidebar.selectbox('Dia da semana', date_generated)
 			
 			# formata data inicial
 			start_time = event['start'].get('dateTime', event['start'].get('date'))
@@ -164,17 +164,14 @@ def main():
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
-			
-			
+					
 			if t_start.day == date.day:
 				try:	
-
 					st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
 					st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 				except:
 					st.error('Evento sem informacao')
-
 
 				with st.expander('Detalhes do evento'):
 					# organizador
