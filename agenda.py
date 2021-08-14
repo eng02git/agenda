@@ -168,8 +168,8 @@ def main():
 			if t_start.day == date.day:
 				try:	
 
-					st.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+					st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+					st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 				except:
 					st.error('Evento sem informacao')
@@ -184,7 +184,7 @@ def main():
 					dados += '**Pessoas: \n **'
 					for people in attendees:
 						dados += '\n' + people['email'].split('@')[0]
-					st.info(dados)
+					st.success(dados)
 
 	# index das colunas
 	index = 0
