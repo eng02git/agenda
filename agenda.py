@@ -86,15 +86,15 @@ def main():
 		st.write('No upcoming events found.')
 	
 	# eventos do dia
-	if telas == 'Todos os eventos' or telas == 'Eventos do dia':
+	if (telas == 'Todos os eventos') or (telas == 'Eventos do dia'):
 		# organizacao dos dados
 		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
-		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
-		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
-		dia, semana = st.columns([2, 6])
+	ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
+	ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
+		#dia, semana = st.columns([2, 6])
 		
 	# eventos da semana
-	if telas == 'Todos os eventos' or telas == 'Eventos fixos':
+	if (telas == 'Todos os eventos') or (telas == 'Eventos fixos'):
 		st.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 
 		# eventos fixos
