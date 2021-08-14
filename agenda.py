@@ -138,18 +138,18 @@ def main():
 			st.warning('Definir detalhes')
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
-		st.subheader('Eventos da semana :spiral_calendar_pad:')
-		st.write('dia atual')
+		#st.subheader('Eventos da semana :spiral_calendar_pad:')
+		#st.write('dia atual')
 		dia_atual_semana = now_date.today().weekday()
-		st.write(dia_atual_semana)
-		st.write('demais dias da semana')
+		#st.write(dia_atual_semana)
+		#st.write('demais dias da semana')
 		restante = 7 - dia_atual_semana
-		st.write(restante)
+		#st.write(restante)
 		date_generated = [now_date + datetime.timedelta(days=x) for x in range(1, restante)]
 
 		
-		st.write(st.session_state.key)
-		st.write((6 - dia_atual_semana + st.session_state.key - 1))
+		#st.write(st.session_state.key)
+		#st.write((6 - dia_atual_semana + st.session_state.key - 1))
 		for event in events:
 			# formato da data
 			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
