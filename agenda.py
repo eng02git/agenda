@@ -70,6 +70,7 @@ def main():
 	tela = st.sidebar.radio('Selecione os eventos que deseja visualizar', telas)
 	
 	#automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
+	automatico = 'Sim'
 	if automatico == 'Nao':
 		#agenda = st.sidebar.radio('Agenda', telas)
 		
