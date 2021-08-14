@@ -135,7 +135,9 @@ def main():
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
 	
-	st.subheader('Eventos da semana :spiral_calendar_pad:')
+	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana')
+		st.subheader('Eventos da semana :spiral_calendar_pad:')
+		st.write(now_date.today().weekday())
 
 	# index das colunas
 	index = 0
