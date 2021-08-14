@@ -156,7 +156,7 @@ def main():
 		for event in events:
 			# formato da data
 			formater = "%Y-%m-%dT%H:%M:%S"
-			formater2 = "%d-%m-%Y"
+			formater2 = "%d/%m/%Y"
 			
 			# dia para mostrar na tela (automatico)
 			#date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
