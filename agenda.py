@@ -137,7 +137,16 @@ def main():
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
-		st.write(now_date.today().weekday())
+		st.write('dia atual')
+		dia_atual_semana = now_date.today().weekday()
+		st.write(dia_atual_semana)
+		st.write('demais dias da semana')
+		restante = 6 - dia_atual_semana
+		st.write(restante)
+		date_generated = [now_date + datetime.timedelta(days=x) for x in range(0, restante)]
+
+		for date in date_generated:
+   			 st.write(date.strftime("%d-%m-%Y"))
 
 	# index das colunas
 	index = 0
