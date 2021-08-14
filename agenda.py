@@ -69,7 +69,7 @@ def main():
 	telas = ['Todos os eventos', 'Eventos do dia', 'Eventos da semana', 'Eventos fixos']
 	tela = st.sidebar.radio('Selecione os eventos que deseja visualizar', telas)
 	
-	automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
+	#automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
 	if automatico == 'Nao':
 		#agenda = st.sidebar.radio('Agenda', telas)
 		
@@ -79,7 +79,8 @@ def main():
 		#	st.session_state['key'] = 2
 		pass
 	else:
-		minutos = st.sidebar.number_input('Intervalo de refresh em minutos', min_value=1, max_value=10, value=5)
+		#minutos = st.sidebar.number_input('Intervalo de refresh em minutos', min_value=1, max_value=10, value=5)
+		pass
 	
 	# difine um estado inicial para as telas
 	if 'key' not in st.session_state:
@@ -148,13 +149,18 @@ def main():
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
-		date = st.sidebar.selectbox('Dia da semana', date_generated.strftime("%d-%m-%Y))
+		
+		lista_datas = []
+		for valor in date_generated:
+			lista_datas = date_generated.strftime("%d-%m-%Y)
+							      
+		date = st.sidebar.selectbox('Dia da semana', lista_datas)
 		
 		for event in events:
 			# formato da data
 			formater = "%Y-%m-%dT%H:%M:%S"
 			
-			# dia para mostrar na tela
+			# dia para mostrar na tela (automatico)
 			#date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
 			
 			# formata data inicial
@@ -169,7 +175,6 @@ def main():
 				try:	
 					st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
 					st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
-
 				except:
 					st.error('Evento sem informacao')
 
