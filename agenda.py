@@ -143,10 +143,12 @@ def main():
 		st.write('demais dias da semana')
 		restante = 7 - dia_atual_semana
 		st.write(restante)
-		date_generated = [now_date + datetime.timedelta(days=x) for x in range(0, restante)]
+		date_generated = [now_date + datetime.timedelta(days=x) for x in range(1, restante)]
 
 		for date in date_generated:
    			 st.write(date.strftime("%d-%m-%Y"))
+				
+		
 
 	# index das colunas
 	index = 0
