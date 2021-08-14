@@ -44,7 +44,7 @@ def main():
 	now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
 	now_date = datetime.datetime.utcnow()
 	events_result = service.events().list(calendarId='primary', timeMin=now,
-										maxResults=10, singleEvents=True,
+										maxResults=100, singleEvents=True,
 										orderBy='startTime').execute()
 	events = events_result.get('items', [])
 
@@ -89,32 +89,25 @@ def main():
 	ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 	ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 	dia, semana = st.columns([2, 6])
-	dia1_1, dia1_2, esp1 = st.columns([1.5,1.5,4])
-	dia2_1, dia2_2, esp2 = st.columns([1.5,1.5,4])
-	dia3_1, dia3_2, esp3 = st.columns([1.5,1.5,4])
-	dia4_1, dia4_2, esp4 = st.columns([1.5,1.5,4])
-	
-	dia.subheader('Eventos fixos :lower_left_ballpoint_pen:')
-	semana.subheader('Eventos da semana :spiral_calendar_pad:')
+	st.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 	
 	# eventos fixos
+	st.warning('** :clock2: 08:30 - 08:45 **')
+	st.warning('** Reunião diária do PAF    **')
+	st.warning('** :clock2: 08:40 - 09:00 **')
+	st.warning('** Reunião diária engenharia**')
+	st.warning('** :clock2: 09:00 - 09:40 **')
+	st.warning('** Reunião de produtividade **')
+	st.warning('** :clock2: 09:40 - 10:20 **')
+	st.warning('** Reunião da L751          **')
+	st.warning('** :clock2: 10:30 - 10:30 **')
+	st.warning('** Reunião matinal logística**')
+	st.warning('** :clock2: 10:20 - 11:00 **')
+	st.warning('** Reunião da L752          **')
+	st.warning('** :clock2: 11:00 - 11:30 **')
+	st.warning('** Reunião de planejamento  **')	
 	
-	dia1_1.warning('** Reunião diária do PAF    **')
-	dia1_2.warning('** Reunião diária engenharia**')
-	dia2_1.warning('** Reunião de produtividade **')
-	dia2_2.warning('** Reunião da L751          **')
-	dia3_1.warning('** Reunião matinal logística**')
-	dia3_2.warning('** Reunião da L752          **')
-	dia4_1.warning('** Reunião de planejamento  **')
-	
-	dia1_1.warning('** :clock2: 08:30 - 08:45 **')
-	dia1_2.warning('** :clock2: 08:40 - 09:00 **')
-	dia2_1.warning('** :clock2: 09:00 - 09:40 **')
-	dia2_2.warning('** :clock2: 09:40 - 10:20 **')
-	dia3_1.warning('** :clock2: 10:30 - 10:30 **')
-	dia3_2.warning('** :clock2: 10:20 - 11:00 **')
-	dia4_1.warning('** :clock2: 11:00 - 11:30 **')
-	
+	st.subheader('Eventos da semana :spiral_calendar_pad:')
 
 	# index das colunas
 	index = 0
@@ -333,7 +326,7 @@ def main():
 		st.session_state.key += 1
 		
 	if automatico == 'Sim' and st.session_state.key > 3:
-			st.session_state.key = 1
+		st.session_state.key = 1
 			
 			
 	
