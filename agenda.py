@@ -156,6 +156,7 @@ def main():
 		for event in events:
 			# formato da data
 			formater = "%Y-%m-%dT%H:%M:%S"
+			formater2 = "%d-%m-%Y"
 			
 			# dia para mostrar na tela (automatico)
 			#date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
@@ -166,7 +167,7 @@ def main():
 
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
-			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater2)
 			
 			# data selecionada
 			data_selecionada = datetime.datetime.strptime(data_sel, formater)
