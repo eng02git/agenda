@@ -164,25 +164,27 @@ def main():
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
 			
-			try:	
-				#ev0.markdown()
-				st.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-				st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
-
-			except:
-				st.error('Evento sem informacao')
-
 			
-			with st.expander('Detalhes do evento'):
-				# organizador
-				dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+			if t_start.day == date.day:
+				try:	
 
-				# pessoas
-				attendees = event['attendees']
-				dados += '**Pessoas: \n **'
-				for people in attendees:
-					dados += '\n' + people['email'].split('@')[0]
-				st.info(dados)
+					st.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+					st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+
+				except:
+					st.error('Evento sem informacao')
+
+
+				with st.expander('Detalhes do evento'):
+					# organizador
+					dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+					# pessoas
+					attendees = event['attendees']
+					dados += '**Pessoas: \n **'
+					for people in attendees:
+						dados += '\n' + people['email'].split('@')[0]
+					st.info(dados)
 
 	# index das colunas
 	index = 0
