@@ -66,15 +66,16 @@ def main():
 	
 	# organizacao do sidebar
 	automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
-	telas = ['Diaria', 'Semanal']
+	telas = ['Todos os eventos', 'Eventos do dia', 'Eventos da semana', 'Eventos fixos']
 	
 	if automatico == 'Nao':
-		agenda = st.sidebar.radio('Agenda', telas)
+		#agenda = st.sidebar.radio('Agenda', telas)
 		
-		if agenda == 'Diaria':
-			st.session_state['key'] = 1
-		elif agenda == 'Semanal':
-			st.session_state['key'] = 2
+		#if agenda == 'Diaria':
+		#	st.session_state['key'] = 1
+		#elif agenda == 'Semanal':
+		#	st.session_state['key'] = 2
+		pass
 	
 	# difine um estado inicial para as telas
 	if 'key' not in st.session_state:
@@ -83,43 +84,54 @@ def main():
 	# mensagem para avisar que nao ha eventos
 	if not events:
 		st.write('No upcoming events found.')
-		
-	# organizacao dos dados
-	st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
-	ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
-	ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
-	dia, semana = st.columns([2, 6])
-	st.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 	
-	# eventos fixos
-	st.warning('** :clock2: 08:30 - 08:45 **')
-	st.warning('** Reunião diária do PAF    **')
-	with st.expander('Detalhes do evento'):
-		st.warning('Definir detalhes')
-	st.warning('** :clock2: 08:40 - 09:00 **')
-	st.warning('** Reunião diária engenharia**')
-	with st.expander('Detalhes do evento'):
-		st.warning('Definir detalhes')
-	st.warning('** :clock2: 09:00 - 09:40 **')
-	st.warning('** Reunião de produtividade **')
-	with st.expander('Detalhes do evento'):
-		st.warning('Definir detalhes')
-	st.warning('** :clock2: 09:40 - 10:20 **')
-	st.warning('** Reunião da L751          **')
-	with st.expander('Detalhes do evento'):
-		st.warning('Definir detalhes')
-	st.warning('** :clock2: 10:30 - 10:30 **')
-	st.warning('** Reunião matinal logística**')
-	with st.expander('Detalhes do evento'):
-		st.warning('Definir detalhes')
-	st.warning('** :clock2: 10:20 - 11:00 **')
-	st.warning('** Reunião da L752          **')
-	with st.expander('Detalhes do evento'):
-		st.warning('Definir detalhes')
-	st.warning('** :clock2: 11:00 - 11:30 **')
-	st.warning('** Reunião de planejamento  **')	
-	with st.expander('Detalhes do evento'):
-		st.warning('Definir detalhes')
+	# eventos do dia
+	if telas == 'Todos os eventos' or telas == 'Eventos do dia':
+		# organizacao dos dados
+		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
+		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
+		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
+		dia, semana = st.columns([2, 6])
+		
+	# eventos da semana
+	if telas == 'Todos os eventos' or telas == 'Eventos fixos':
+		st.subheader('Eventos fixos :lower_left_ballpoint_pen:')
+
+		# eventos fixos
+		st.warning('** :clock2: 08:30 - 08:45 **')
+		st.warning('** Reunião diária do PAF    **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 08:40 - 09:00 **')
+		st.warning('** Reunião diária engenharia**')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 09:00 - 09:40 **')
+		st.warning('** Reunião de produtividade **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 09:40 - 10:20 **')
+		st.warning('** Reunião da L751          **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 10:30 - 10:30 **')
+		st.warning('** Reunião matinal logística**')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 10:20 - 11:00 **')
+		st.warning('** Reunião da L752          **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 11:00 - 11:30 **')
+		st.warning('** Reunião de planejamento  **')	
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
 	
 	st.subheader('Eventos da semana :spiral_calendar_pad:')
 
