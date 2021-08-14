@@ -65,11 +65,11 @@ def main():
 	update.write('Última atualização: ' + atualizacao)
 	
 	# organizacao do sidebar
-	automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
+	
 	telas = ['Todos os eventos', 'Eventos do dia', 'Eventos da semana', 'Eventos fixos']
+	tela = st.sidebar.radio('Selecione os eventos que deseja visualizar', telas)
 	
-	tela = st.sidebar.radio('Selecione os eventos que deseja visualizar')
-	
+	automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
 	if automatico == 'Nao':
 		#agenda = st.sidebar.radio('Agenda', telas)
 		
