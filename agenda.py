@@ -167,10 +167,10 @@ def main():
 
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
-			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater2)
+			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
 			
 			# data selecionada
-			data_selecionada = datetime.datetime.strptime(data_sel, formater)
+			data_selecionada = datetime.datetime.strptime(data_sel, formater2)
 			
 			if t_start.day == data_selecionada.day:
 				try:	
