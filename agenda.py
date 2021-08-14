@@ -136,26 +136,27 @@ def main():
 		st.warning('** Reunião de planejamento  **')	
 		with st.expander('Detalhes do evento'):
 			st.warning('Definir detalhes')
+
+	# dia atual da semana
+	dia_atual_semana = now_date.today().weekday()
+	
+	# dias restantes da semana
+	restante = 7 - dia_atual_semana
+	
+	# Lista com as datas restantes excluindo o dia atual
+	date_generated = [now_date + datetime.timedelta(days=x) for x in range(1, restante)]
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
-		#st.write('dia atual')
-		dia_atual_semana = now_date.today().weekday()
-		#st.write(dia_atual_semana)
-		#st.write('demais dias da semana')
-		restante = 7 - dia_atual_semana
-		#st.write(restante)
-		date_generated = [now_date + datetime.timedelta(days=x) for x in range(1, restante)]
 
-		
-		#st.write(st.session_state.key)
-		#st.write((6 - dia_atual_semana + st.session_state.key - 1))
 		for event in events:
 			# formato da data
-			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
-			
 			formater = "%Y-%m-%dT%H:%M:%S"
-
+			
+			# dia para mostrar na tela
+			#date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
+			date = st.sidebar.selectbox('Dia da semana', date_generated)
+			
 			# formata data inicial
 			start_time = event['start'].get('dateTime', event['start'].get('date'))
 			t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
