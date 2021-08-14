@@ -147,9 +147,12 @@ def main():
 		st.write(restante)
 		date_generated = [now_date + datetime.timedelta(days=x) for x in range(1, restante)]
 
-		for date in date_generated:
-			
+		
+
+		for event in events:
 			# formato da data
+			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 1)]
+			
 			formater = "%Y-%m-%dT%H:%M:%S"
 
 			# formata data inicial
@@ -159,9 +162,26 @@ def main():
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+			
+			try:	
+				#ev0.markdown()
+				st.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+				st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
-				
-		
+			except:
+				st.error('Evento sem informacao')
+
+			
+			with st.expander('Detalhes do evento'):
+				# organizador
+				dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+				# pessoas
+				attendees = event['attendees']
+				dados += '**Pessoas: \n **'
+				for people in attendees:
+					dados += '\n' + people['email'].split('@')[0]
+				st.info(dados)
 
 	# index das colunas
 	index = 0
@@ -380,7 +400,7 @@ def main():
 	if automatico == 'Sim':	
 		st.session_state.key += 1
 		
-	if automatico == 'Sim' and st.session_state.key > 3:
+	if automatico == 'Sim' and st.session_state.key > restante:
 		st.session_state.key = 1
 		
 	# update every  mins
