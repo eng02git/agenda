@@ -152,7 +152,7 @@ def main():
 		st.write((6 - dia_atual_semana + st.session_state.key - 1))
 		for event in events:
 			# formato da data
-			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 1)]
+			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
 			
 			formater = "%Y-%m-%dT%H:%M:%S"
 
@@ -401,7 +401,7 @@ def main():
 	if automatico == 'Sim':	
 		st.session_state.key += 1
 		
-	if automatico == 'Sim' and st.session_state.key > restante:
+	if automatico == 'Sim' and st.session_state.key > (restante - 1):
 		st.session_state.key = 1
 		
 	# update every  mins
