@@ -95,8 +95,8 @@ def main():
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
 		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
-		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
-		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
+		st, st, st, st, st, st, st, st = st.columns(8)
+		st_, st_, st_, st_, st_, st_, st_, st_ = st.columns(8)
 		#dia, semana = st.columns([2, 6])
 		
 	# eventos da semana
@@ -210,14 +210,14 @@ def main():
 			if t_start.day == now_date.day:
 				if index == 0:
 					try:	
-						#ev0.markdown()
-						ev0.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev0.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev0.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev0:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -231,14 +231,14 @@ def main():
 
 				if index == 1:
 					try:	
-						#ev1.markdown()
-						ev1.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev1.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev1.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev1:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -253,14 +253,14 @@ def main():
 
 				if index == 2:
 					try:	
-						#ev2.markdown()
-						ev2.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev2.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev2.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev2:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -275,14 +275,14 @@ def main():
 
 				if index == 3:
 					try:	
-						#ev3.markdown()
-						ev3.info(t_start.strftime(":clock3:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev3.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.info(t_start.strftime(":clock3:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev3.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev3:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -296,14 +296,14 @@ def main():
 
 				if index == 4:
 					try:	
-						#ev4.markdown()
-						ev4.info(t_start.strftime(":clock4:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev4.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.info(t_start.strftime(":clock4:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev4.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev4:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -317,14 +317,14 @@ def main():
 
 				if index == 5:
 					try:	
-						#ev5.markdown()
-						ev5.info(t_start.strftime(":clock5:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev5.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.info(t_start.strftime(":clock5:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev5.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev5:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -339,14 +339,14 @@ def main():
 
 				if index == 6:
 					try:	
-						#ev6.markdown()
-						ev6.info(t_start.strftime(":clock6:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev6.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.info(t_start.strftime(":clock6:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev6.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev6:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -360,14 +360,14 @@ def main():
 
 				if index == 7:
 					try:	
-						#ev7.markdown()
-						ev7.error(t_start.strftime(":clock7:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev7.error(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						#st.markdown()
+						st.error(t_start.strftime(":clock7:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.error(':grey_exclamation: ' + '**' + event['summary'] + '**')
 
 					except:
-						ev7.error('Evento sem informacao')
+						st.error('Evento sem informacao')
 
-					with ev7:
+					with st:
 						with st.expander('Detalhes do evento'):
 							# organizador
 							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
@@ -426,6 +426,3 @@ if __name__ == '__main__':
 	#source = htmlfile.read()
 	
 	#components.html(source)
-	
-
-
