@@ -217,17 +217,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.info(dados)
 
 				if index == 1:
 					try:	
@@ -238,17 +238,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+					
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.info(dados)
 
 
 				if index == 2:
@@ -260,17 +260,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+					
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.info(dados)
 
 
 				if index == 3:
@@ -282,17 +282,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+					
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.info(dados)
 
 				if index == 4:
 					try:	
@@ -303,17 +303,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+					
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.info(dados)
 
 				if index == 5:
 					try:	
@@ -324,17 +324,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+					
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.info(dados)
 
 
 				if index == 6:
@@ -346,17 +346,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.info(dados)
 
 				if index == 7:
 					try:	
@@ -367,17 +367,17 @@ def main():
 					except:
 						st.error('Evento sem informacao')
 
-					with st:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.error(dados)
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.error(dados)
 
 				index += 1	
 								
