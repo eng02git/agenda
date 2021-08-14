@@ -152,10 +152,9 @@ def main():
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
 		
 		lista_datas = []
-		for valor in date_generated:
-			lista_datas = valor.strftime("%d-%m-%Y")
+
 							      
-		date = st.sidebar.selectbox('Dia da semana', lista_datas)
+		date = st.sidebar.selectbox('Dia da semana', date_generated)
 		
 		for event in events:
 			# formato da data
