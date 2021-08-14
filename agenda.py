@@ -146,12 +146,12 @@ def main():
 	restante = 7 - dia_atual_semana
 	
 	# Lista com as datas restantes excluindo o dia atual
-	date_generated = [(now_date + datetime.timedelta(days=x)) for x in range(1, restante)]
+	date_generated = [(now_date + datetime.timedelta(days=x)).strftime('%x') for x in range(1, restante)]
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
-		data_selecionada = st.sidebar.selectbox('Dia da semana', date_generated)
+		data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
 		
 		for event in events:
 			# formato da data
@@ -167,7 +167,10 @@ def main():
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
-					
+			
+			# data selecionada
+			data_selecionada = datetime.datetime.strptime(data_sel, formater)
+			
 			if t_start.day == data_selecionada.day:
 				try:	
 					st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
