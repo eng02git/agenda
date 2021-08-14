@@ -148,7 +148,8 @@ def main():
 		date_generated = [now_date + datetime.timedelta(days=x) for x in range(1, restante)]
 
 		
-
+		st.write(st.session_state.key)
+		st.write((6 - dia_atual_semana + st.session_state.key - 1))
 		for event in events:
 			# formato da data
 			date = date_generated[(6 - dia_atual_semana + st.session_state.key - 1)]
