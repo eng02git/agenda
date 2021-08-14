@@ -94,18 +94,32 @@ def main():
 	# eventos fixos
 	st.warning('** :clock2: 08:30 - 08:45 **')
 	st.warning('** Reunião diária do PAF    **')
+	with st.expander('Detalhes do evento'):
+		pass
 	st.warning('** :clock2: 08:40 - 09:00 **')
 	st.warning('** Reunião diária engenharia**')
+	with st.expander('Detalhes do evento'):
+		pass
 	st.warning('** :clock2: 09:00 - 09:40 **')
 	st.warning('** Reunião de produtividade **')
+	with st.expander('Detalhes do evento'):
+		pass
 	st.warning('** :clock2: 09:40 - 10:20 **')
 	st.warning('** Reunião da L751          **')
+	with st.expander('Detalhes do evento'):
+		pass
 	st.warning('** :clock2: 10:30 - 10:30 **')
 	st.warning('** Reunião matinal logística**')
+	with st.expander('Detalhes do evento'):
+		pass
 	st.warning('** :clock2: 10:20 - 11:00 **')
 	st.warning('** Reunião da L752          **')
+	with st.expander('Detalhes do evento'):
+		pass
 	st.warning('** :clock2: 11:00 - 11:30 **')
 	st.warning('** Reunião de planejamento  **')	
+	with st.expander('Detalhes do evento'):
+		pass
 	
 	st.subheader('Eventos da semana :spiral_calendar_pad:')
 
