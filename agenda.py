@@ -141,7 +141,7 @@ def main():
 		dia_atual_semana = now_date.today().weekday()
 		st.write(dia_atual_semana)
 		st.write('demais dias da semana')
-		restante = 6 - dia_atual_semana
+		restante = 7 - dia_atual_semana
 		st.write(restante)
 		date_generated = [now_date + datetime.timedelta(days=x) for x in range(0, restante)]
 
