@@ -146,7 +146,7 @@ def main():
 	restante = 7 - dia_atual_semana
 	
 	# Lista com as datas restantes excluindo o dia atual
-	date_generated = [(now_date + datetime.timedelta(days=x)).strftime('%x') for x in range(1, restante)]
+	date_generated = [(now_date + datetime.timedelta(days=x)).strftime("%d/%m/%Y") for x in range(1, restante)]
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
