@@ -67,7 +67,8 @@ def main():
 	# organizacao do sidebar
 	
 	telas = ['Todos os eventos', 'Eventos do dia', 'Eventos da semana', 'Eventos fixos']
-	tela = st.sidebar.radio('Selecione os eventos que deseja visualizar', telas)
+	#tela = st.sidebar.radio('Selecione os eventos que deseja visualizar', telas)
+	tela = 'Todos os eventos'
 	
 	#automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
 	automatico = 'Sim'
