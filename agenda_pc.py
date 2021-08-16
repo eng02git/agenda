@@ -184,7 +184,7 @@ def main():
 			# data selecionada
 			if data_sel is not None:
 				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
-				semana.write(data_selecionada)
+				#semana.write(data_selecionada)
 				
 				if t_start.day == data_selecionada.day:
 					try:	
