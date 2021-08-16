@@ -100,8 +100,8 @@ def main():
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		
 		# colunas eventos da fixos e da semana
-		d1, d2, d3, d4, s1, s2, s3, s4 = st.comlumns(8)
-		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.comlumns(8)
+		d1, d2, d3, d4, s1, s2, s3, s4 = st.columns(8)
+		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.columns(8)
 		
 	# eventos da semana
 	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
