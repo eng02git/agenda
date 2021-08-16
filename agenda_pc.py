@@ -429,6 +429,9 @@ def main():
 		
 	# update every  mins
 	st_autorefresh(interval=0.1 * 60 * 1000, key="dataframerefresh")
+	st.write(st.session_state.key)
+	st.write(restante)
+	st.write((6 - dia_atual_semana + st.session_state.key - 3))
 			
 	
 if __name__ == '__main__':
