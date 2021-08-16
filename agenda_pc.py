@@ -87,8 +87,6 @@ def main():
 	if 'key' not in st.session_state:
 		st.session_state['key'] = 1
 	
-	
-	
 	# eventos do dia
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
@@ -97,19 +95,23 @@ def main():
 		if not events:
 			st.info('Não há mais eventos hoje.')
 		
+		# colunas evento do dia
 		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
-		#dia, semana = st.columns([2, 6])
+		
+		# colunas eventos da fixos e da semana
+		d1, d2, d3, d4, s1, s2, s3, s4 = st.comlumns(8)
+		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.comlumns(8)
 		
 	# eventos da semana
 	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
 		st.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 
 		# eventos fixos
-		st.warning('** :clock2: 08:30 - 08:45 **')
-		st.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
+		d1.warning('** :clock2: 08:30 - 08:45 **')
+		d1.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
+		with d1.expander('Detalhes do evento'):
+			d1.warning('Definir detalhes')
 
 		st.warning('** :clock2: 08:40 - 09:00 **')
 		st.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
