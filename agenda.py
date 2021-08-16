@@ -95,7 +95,7 @@ def main():
 		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
 		# mensagem para avisar que nao ha eventos
 		if not events:
-			st.write('Não há mais eventos hoje.')
+			st.info('Não há mais eventos hoje.')
 		
 		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
@@ -154,7 +154,7 @@ def main():
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
 		data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
-		st.write(events)
+		index_semana = 0
 		for event in events:
 			# formato da data
 			formater = "%Y-%m-%dT%H:%M:%S"
@@ -192,6 +192,9 @@ def main():
 						for people in attendees:
 							dados += '\n' + people['email'].split('@')[0]
 						st.success(dados)
+			index_semana += 1
+		if index_semana == 0:
+			st.success('Não há eventos para o dia selecionado')
 		
 	# index das colunas
 	index = 0
