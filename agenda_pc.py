@@ -234,6 +234,7 @@ def main():
 					try:	
 						ev0.write(t_start.day)
 						ev0.write(t_start)
+						ev0.write(now_date)
 						#ev0.markdown()
 						ev0.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
 						ev0.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
