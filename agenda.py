@@ -190,9 +190,9 @@ def main():
 						for people in attendees:
 							dados += '\n' + people['email'].split('@')[0]
 						st.success(dados)
-			else:
-				st.success('Ainda não há eventos para a semana!')
-
+					st.write(events)
+						#st.success('Ainda não há eventos para o dia selecionado!')
+		
 	# index das colunas
 	index = 0
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
