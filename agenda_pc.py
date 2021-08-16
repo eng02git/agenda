@@ -428,7 +428,7 @@ def main():
 	if automatico == 'Sim':	
 		st.session_state.key += 1
 		
-	if automatico == 'Sim' and st.session_state.key > (restante - 1):
+	if automatico == 'Sim' and st.session_state.key > (restante - 2):
 		st.session_state.key = 1
 		
 	# update every  mins
