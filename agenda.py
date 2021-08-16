@@ -87,8 +87,6 @@ def main():
 	if 'key' not in st.session_state:
 		st.session_state['key'] = 1
 	
-	
-	
 	# eventos do dia
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
@@ -153,7 +151,7 @@ def main():
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
-		data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
+		data_sel = st.selectbox('Dia da semana', date_generated)
 		index_semana = 0
 		for event in events:
 			# formato da data
