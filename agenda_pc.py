@@ -100,12 +100,13 @@ def main():
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		
 		# colunas eventos da fixos e da semana
+		fixo, semana = st.columns(2)
 		d1, d2, d3, s1, s2, s3, s4 = st.columns([1.5,2,0.5,1,1,1,1])
 		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.columns(8)
 		
 	# eventos da semana
 	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
-		d1.subheader('Eventos fixos :lower_left_ballpoint_pen:')
+		fixo.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 
 		# eventos fixos
 		d1.warning('** :clock2: 08:30 - 08:45 **')
