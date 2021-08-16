@@ -165,7 +165,7 @@ def main():
 							      
 		#data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
 		data_sel = date_generated[(st.session_state.key - 1)]
-		semana.subheader('Eventos da semana' + '(' + data_sel + ')' + ' :spiral_calendar_pad:' )
+		semana.subheader('Eventos da semana ' + '(' + data_sel + ')' + ' :spiral_calendar_pad:' )
 		#data_semana.write(data_sel)
 		index_semana = 0
 		for event in events:
