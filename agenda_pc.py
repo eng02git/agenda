@@ -164,6 +164,8 @@ def main():
 		semana.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
 		#data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
+		data_sel = date_generated[(st.session_state.key - 1)]
+		st.write(data_sel)
 		index_semana = 0
 		for event in events:
 			# formato da data
@@ -171,7 +173,7 @@ def main():
 			formater2 = "%d/%m/%Y"
 			
 			# dia para mostrar na tela (automatico)
-			data_sel = date_generated[(st.session_state.key - 1)]
+			
 			
 			# formata data inicial
 			start_time = event['start'].get('dateTime', event['start'].get('date'))
