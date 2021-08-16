@@ -49,8 +49,8 @@ def main():
 	events = events_result.get('items', [])
 
 	# constantes para formatacao da data	
-	Diasemana = ('Segundasfeira','Terca-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado','Domingo')
-	Meses = ('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro')
+	Diasemana = ('Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado','Domingo')
+	Meses = ('janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro')
 	
 	# formatacao da data para gerar o titulo
 	mes = (now_date.month-1)
@@ -87,14 +87,16 @@ def main():
 	if 'key' not in st.session_state:
 		st.session_state['key'] = 1
 	
-	# mensagem para avisar que nao ha eventos
-	if not events:
-		st.write('No upcoming events found.')
+	
 	
 	# eventos do dia
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
-		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
+		st.subheader('O que está rolando hoje ' + ":alarm_clock:" )
+		# mensagem para avisar que nao ha eventos
+		if not events:
+			st.info('Não há mais eventos hoje.')
+		
 		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		#dia, semana = st.columns([2, 6])
@@ -152,7 +154,7 @@ def main():
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
 		data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
-		
+		index_semana = 0
 		for event in events:
 			# formato da data
 			formater = "%Y-%m-%dT%H:%M:%S"
@@ -168,28 +170,32 @@ def main():
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
-			
+
 			# data selecionada
-			data_selecionada = datetime.datetime.strptime(data_sel, formater2)
-			
-			if t_start.day == data_selecionada.day:
-				try:	
-					st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
-				except:
-					st.error('Evento sem informacao')
+			if data_sel is not None:
+				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
 
-				with st.expander('Detalhes do evento'):
-					# organizador
-					dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+				if t_start.day == data_selecionada.day:
+					try:	
+						st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
+					except:
+						st.error('Evento sem informacao')
 
-					# pessoas
-					attendees = event['attendees']
-					dados += '**Pessoas: \n **'
-					for people in attendees:
-						dados += '\n' + people['email'].split('@')[0]
-					st.success(dados)
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
 
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.success(dados)
+			index_semana += 1
+		if index_semana == 0:
+			st.success('Não há eventos para o dia selecionado')
+		
 	# index das colunas
 	index = 0
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
@@ -426,6 +432,3 @@ if __name__ == '__main__':
 	#source = htmlfile.read()
 	
 	#components.html(source)
-	
-
-
