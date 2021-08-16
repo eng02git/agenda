@@ -160,6 +160,10 @@ def main():
 	# Lista com as datas restantes excluindo o dia atual
 	date_generated = [(now_date + datetime.timedelta(days=x)).strftime("%d/%m/%Y") for x in range(1, restante)]
 	
+	st.write(st.session_state.key)
+	st.write(restante)
+	st.write((6 - dia_atual_semana + st.session_state.key - 3))
+	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		semana.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
@@ -429,9 +433,7 @@ def main():
 		
 	# update every  mins
 	st_autorefresh(interval=0.1 * 60 * 1000, key="dataframerefresh")
-	st.write(st.session_state.key)
-	st.write(restante)
-	st.write((6 - dia_atual_semana + st.session_state.key - 3))
+
 			
 	
 if __name__ == '__main__':
