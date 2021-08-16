@@ -226,11 +226,13 @@ def main():
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)	
-
+			
 			# maximo de 8 eventos simultaneos
 			if t_start.day == now_date.day:
+				
 				if index == 0:
 					try:	
+						ev0.write(t_start.day)
 						#ev0.markdown()
 						ev0.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
 						ev0.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
