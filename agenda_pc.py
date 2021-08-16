@@ -112,7 +112,7 @@ def main():
 		d1.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
 		with d1:
 			with st.expander('Detalhes do evento'):
-				d1.warning('Definir detalhes')
+				st.warning('Definir detalhes')
 
 		st.warning('** :clock2: 08:40 - 09:00 **')
 		st.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
