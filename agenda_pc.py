@@ -100,7 +100,7 @@ def main():
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		
 		# colunas eventos da fixos e da semana
-		fixo, semana = st.columns([3, 5])
+		fixo, semana, data_semana = st.columns([3, 2, 3])
 		d1, d2, d3, s1, s2, s3 = st.columns([1,1.5,0.5,1,2.5,1.5])
 		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.columns(8)
 		
@@ -165,7 +165,7 @@ def main():
 							      
 		#data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
 		data_sel = date_generated[(st.session_state.key - 1)]
-		st.write(data_sel)
+		data_semana.write(data_sel)
 		index_semana = 0
 		for event in events:
 			# formato da data
