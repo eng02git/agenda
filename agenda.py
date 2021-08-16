@@ -170,25 +170,28 @@ def main():
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
 			
 			# data selecionada
-			data_selecionada = datetime.datetime.strptime(data_sel, formater2)
-			
-			if t_start.day == data_selecionada.day:
-				try:	
-					st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-					st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
-				except:
-					st.error('Evento sem informacao')
+			if data_sel not None:
+				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
 
-				with st.expander('Detalhes do evento'):
-					# organizador
-					dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+				if t_start.day == data_selecionada.day:
+					try:	
+						st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
+						st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
+					except:
+						st.error('Evento sem informacao')
 
-					# pessoas
-					attendees = event['attendees']
-					dados += '**Pessoas: \n **'
-					for people in attendees:
-						dados += '\n' + people['email'].split('@')[0]
-					st.success(dados)
+					with st.expander('Detalhes do evento'):
+						# organizador
+						dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+
+						# pessoas
+						attendees = event['attendees']
+						dados += '**Pessoas: \n **'
+						for people in attendees:
+							dados += '\n' + people['email'].split('@')[0]
+						st.success(dados)
+			else:
+				st.success('Ainda não há eventos para a semana!')
 
 	# index das colunas
 	index = 0
