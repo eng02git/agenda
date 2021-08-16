@@ -170,7 +170,7 @@ def main():
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
 			
 			# data selecionada
-			if data_sel not None:
+			if data_sel is not None:
 				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
 
 				if t_start.day == data_selecionada.day:
