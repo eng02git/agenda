@@ -154,7 +154,7 @@ def main():
 		st.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
 		data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
-		
+		st.write(events)
 		for event in events:
 			# formato da data
 			formater = "%Y-%m-%dT%H:%M:%S"
@@ -170,10 +170,7 @@ def main():
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
-			
-			st.write(end_time)
-			st.write(t_end)
-			
+
 			# data selecionada
 			if data_sel is not None:
 				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
