@@ -163,7 +163,7 @@ def main():
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		semana.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
-		data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
+		#data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
 		index_semana = 0
 		for event in events:
 			# formato da data
@@ -171,7 +171,7 @@ def main():
 			formater2 = "%d/%m/%Y"
 			
 			# dia para mostrar na tela (automatico)
-			#date = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
+			date_sel = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
 			
 			# formata data inicial
 			start_time = event['start'].get('dateTime', event['start'].get('date'))
@@ -184,7 +184,8 @@ def main():
 			# data selecionada
 			if data_sel is not None:
 				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
-
+				semana.write(data_selecionada)
+				
 				if t_start.day == data_selecionada.day:
 					try:	
 						s1.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
@@ -427,7 +428,7 @@ def main():
 		st.session_state.key = 1
 		
 	# update every  mins
-	st_autorefresh(interval=5 * 60 * 1000, key="dataframerefresh")
+	st_autorefresh(interval=0.1 * 60 * 1000, key="dataframerefresh")
 			
 	
 if __name__ == '__main__':
