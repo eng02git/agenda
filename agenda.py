@@ -92,7 +92,7 @@ def main():
 	# eventos do dia
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
-		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
+		st.markdown('O que está rolando hoje ' + ":alarm_clock:" )
 		# mensagem para avisar que nao ha eventos
 		if not events:
 			st.info('Não há mais eventos hoje.')
