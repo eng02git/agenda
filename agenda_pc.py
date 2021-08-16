@@ -162,7 +162,7 @@ def main():
 	
 	st.write(st.session_state.key)
 	st.write(restante)
-	st.write((6 - dia_atual_semana + st.session_state.key - 3))
+	st.write((dia_atual_semana - 1 + st.session_state.key))
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		semana.subheader('Eventos da semana :spiral_calendar_pad:')
@@ -175,7 +175,7 @@ def main():
 			formater2 = "%d/%m/%Y"
 			
 			# dia para mostrar na tela (automatico)
-			data_sel = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
+			data_sel = date_generated[(st.session_state.key - 1)]
 			
 			# formata data inicial
 			start_time = event['start'].get('dateTime', event['start'].get('date'))
@@ -428,7 +428,7 @@ def main():
 	if automatico == 'Sim':	
 		st.session_state.key += 1
 		
-	if automatico == 'Sim' and st.session_state.key > (restante - 2):
+	if automatico == 'Sim' and (st.session_state.key - 1) > (restante - 2):
 		st.session_state.key = 1
 		
 	# update every  mins
