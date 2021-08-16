@@ -99,46 +99,6 @@ def main():
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		#dia, semana = st.columns([2, 6])
 		
-	# eventos da semana
-	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
-		st.subheader('Eventos fixos :lower_left_ballpoint_pen:')
-
-		# eventos fixos
-		st.warning('** :clock2: 08:30 - 08:45 **')
-		st.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
-
-		st.warning('** :clock2: 08:40 - 09:00 **')
-		st.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
-
-		st.warning('** :clock2: 09:00 - 09:40 **')
-		st.warning(':grey_exclamation: ' + '** Reunião de produtividade **')
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
-
-		st.warning('** :clock2: 09:40 - 10:20 **')
-		st.warning(':grey_exclamation: ' + '** Reunião da L751          **')
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
-
-		st.warning('** :clock2: 10:30 - 10:30 **')
-		st.warning(':grey_exclamation: ' + '** Reunião matinal logística**')
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
-
-		st.warning('** :clock2: 10:20 - 11:00 **')
-		st.warning(':grey_exclamation: ' + '** Reunião da L752          **')
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
-
-		st.warning('** :clock2: 11:00 - 11:30 **')
-		st.warning(':grey_exclamation: ' + '** Reunião de planejamento  **')	
-		with st.expander('Detalhes do evento'):
-			st.warning('Definir detalhes')
-
 	# dia atual da semana
 	dia_atual_semana = now_date.today().weekday()
 	
@@ -193,6 +153,47 @@ def main():
 			index_semana += 1
 		if index_semana == 0:
 			st.success('Não há eventos para o dia selecionado')
+			
+	# eventos fixos
+	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
+		st.subheader('Eventos fixos :lower_left_ballpoint_pen:')
+
+		# eventos fixos
+		st.warning('** :clock2: 08:30 - 08:45 **')
+		st.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 08:40 - 09:00 **')
+		st.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 09:00 - 09:40 **')
+		st.warning(':grey_exclamation: ' + '** Reunião de produtividade **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 09:40 - 10:20 **')
+		st.warning(':grey_exclamation: ' + '** Reunião da L751          **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 10:30 - 10:30 **')
+		st.warning(':grey_exclamation: ' + '** Reunião matinal logística**')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 10:20 - 11:00 **')
+		st.warning(':grey_exclamation: ' + '** Reunião da L752          **')
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
+		st.warning('** :clock2: 11:00 - 11:30 **')
+		st.warning(':grey_exclamation: ' + '** Reunião de planejamento  **')	
+		with st.expander('Detalhes do evento'):
+			st.warning('Definir detalhes')
+
 		
 	# index das colunas
 	index = 0
