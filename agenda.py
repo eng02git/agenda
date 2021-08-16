@@ -49,8 +49,8 @@ def main():
 	events = events_result.get('items', [])
 
 	# constantes para formatacao da data	
-	Diasemana = ('Segundasfeira','Terca-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado','Domingo')
-	Meses = ('Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro')
+	Diasemana = ('Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado','Domingo')
+	Meses = ('janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro')
 	
 	# formatacao da data para gerar o titulo
 	mes = (now_date.month-1)
