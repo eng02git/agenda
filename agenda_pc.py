@@ -110,45 +110,45 @@ def main():
 		# eventos fixos
 		d1.warning('** :clock2: 08:30 - 08:45 **')
 		d2.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
-		with d3:
-			with st.expander('Detalhes do evento'):
-				st.warning('Definir detalhes')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 
 		d1.warning('** :clock2: 08:40 - 09:00 **')
 		d2.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
-		with d3:
-			with st.expander('Detalhes do evento'):
-				st.warning('Definir detalhes')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 
 		d1.warning('** :clock2: 09:00 - 09:40 **')
 		d2.warning(':grey_exclamation: ' + '** Reunião de produtividade **')
-		with d3:
-			with st.expander('Detalhes do evento'):
-				st.warning('Definir detalhes')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 
 		d1.warning('** :clock2: 09:40 - 10:20 **')
 		d2.warning(':grey_exclamation: ' + '** Reunião da L751          **')
-		with d3:
-			with st.expander('Detalhes do evento'):
-				st.warning('Definir detalhes')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 
 		d1.warning('** :clock2: 10:30 - 10:30 **')
 		d2.warning(':grey_exclamation: ' + '** Reunião matinal logística**')
-		with d3:
-			with st.expander('Detalhes do evento'):
-				st.warning('Definir detalhes')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 
 		d1.warning('** :clock2: 10:20 - 11:00 **')
 		d2.warning(':grey_exclamation: ' + '** Reunião da L752          **')
-		with d3:
-			with st.expander('Detalhes do evento'):
-				st.warning('Definir detalhes')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 
 		d1.warning('** :clock2: 11:00 - 11:30 **')
 		d2.warning(':grey_exclamation: ' + '** Reunião de planejamento  **')	
-		with d3:
-			with st.expander('Detalhes do evento'):
-				st.warning('Definir detalhes')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 
 	# dia atual da semana
 	dia_atual_semana = now_date.today().weekday()
