@@ -161,10 +161,11 @@ def main():
 	date_generated = [(now_date + datetime.timedelta(days=x)).strftime("%d/%m/%Y") for x in range(1, restante)]
 	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
-		semana.subheader('Eventos da semana :spiral_calendar_pad:')
+		
 							      
 		#data_sel = st.sidebar.selectbox('Dia da semana', date_generated)
 		data_sel = date_generated[(st.session_state.key - 1)]
+		semana.subheader('Eventos da semana' + '(' + data_sel + ')' + ' :spiral_calendar_pad:' )
 		#data_semana.write(data_sel)
 		index_semana = 0
 		for event in events:
