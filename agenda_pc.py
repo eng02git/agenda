@@ -109,8 +109,8 @@ def main():
 
 		# eventos fixos
 		d1.warning('** :clock2: 08:30 - 08:45 **')
-		d1.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
-		with d1:
+		d2.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
+		with d3:
 			with st.expander('Detalhes do evento'):
 				st.warning('Definir detalhes')
 
