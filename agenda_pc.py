@@ -171,7 +171,7 @@ def main():
 			formater2 = "%d/%m/%Y"
 			
 			# dia para mostrar na tela (automatico)
-			date_sel = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
+			data_sel = date_generated[(6 - dia_atual_semana + st.session_state.key - 3)]
 			
 			# formata data inicial
 			start_time = event['start'].get('dateTime', event['start'].get('date'))
