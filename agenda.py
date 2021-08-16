@@ -190,8 +190,6 @@ def main():
 						for people in attendees:
 							dados += '\n' + people['email'].split('@')[0]
 						st.success(dados)
-					st.write(events)
-						#st.success('Ainda não há eventos para o dia selecionado!')
 		
 	# index das colunas
 	index = 0
