@@ -87,14 +87,16 @@ def main():
 	if 'key' not in st.session_state:
 		st.session_state['key'] = 1
 	
-	# mensagem para avisar que nao ha eventos
-	if not events:
-		st.write('No upcoming events found.')
+	
 	
 	# eventos do dia
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
 		st.markdown('O que esta rolando hoje ' + ":alarm_clock:" )
+		# mensagem para avisar que nao ha eventos
+		if not events:
+			st.write('Não há mais eventos hoje.')
+		
 		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		#dia, semana = st.columns([2, 6])
@@ -168,6 +170,9 @@ def main():
 			# formata data final
 			end_time = event['end'].get('dateTime', event['end'].get('date'))
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+			
+			st.write(end_time)
+			st.write(t_end)
 			
 			# data selecionada
 			if data_sel is not None:
