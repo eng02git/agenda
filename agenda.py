@@ -133,7 +133,7 @@ def main():
 			if data_sel is not None:
 				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
 
-				if t_start.day == data_selecionada.day:
+				if t_start.strftime("%d/%m/%Y") == data_selecionada.strftime("%d/%m/%Y"):
 					try:	
 						st.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
 						st.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
@@ -212,7 +212,7 @@ def main():
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)	
 
 			# maximo de 8 eventos simultaneos
-			if t_start.day == now_date.day:
+			if t_start.strftime("%d/%m/%Y") == now_date.strftime("%d/%m/%Y"):
 				if index == 0:
 					try:	
 						#ev0.markdown()
