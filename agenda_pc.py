@@ -160,10 +160,6 @@ def main():
 	# Lista com as datas restantes excluindo o dia atual
 	date_generated = [(now_date + datetime.timedelta(days=x)).strftime("%d/%m/%Y") for x in range(1, restante)]
 	
-	st.write(st.session_state.key)
-	st.write(restante)
-	st.write((dia_atual_semana - 1 + st.session_state.key))
-	
 	if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
 		semana.subheader('Eventos da semana :spiral_calendar_pad:')
 							      
