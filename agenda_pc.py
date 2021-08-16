@@ -104,53 +104,6 @@ def main():
 		fixo, semana = st.columns([3, 5])
 		d1, d2, d3, s1, s2, s3 = st.columns([1,1.5,0.5,1,2.5,1.5])
 		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.columns(8)
-		
-	# eventos da semana
-	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
-		fixo.subheader('Eventos fixos :lower_left_ballpoint_pen:')
-
-		# eventos fixos
-		d1.warning('** :clock2: 08:30 - 08:45 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
-
-		d1.warning('** :clock2: 08:40 - 09:00 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
-
-		d1.warning('** :clock2: 09:00 - 09:40 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião de produtividade **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
-
-		d1.warning('** :clock2: 09:40 - 10:20 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião da L751          **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
-
-		d1.warning('** :clock2: 10:30 - 10:30 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião matinal logística**')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
-
-		d1.warning('** :clock2: 10:20 - 11:00 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião da L752          **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
-
-		d1.warning('** :clock2: 11:00 - 11:30 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião de planejamento  **')	
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
 
 	# dia atual da semana
 	dia_atual_semana = now_date.today().weekday()
@@ -210,6 +163,53 @@ def main():
 			index_semana += 1
 		if index_semana == 0:
 			st.success('Não há eventos para o dia selecionado')
+			
+	# eventos da semana
+	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
+		fixo.subheader('Eventos fixos :lower_left_ballpoint_pen:')
+
+		# eventos fixos
+		d1.warning('** :clock2: 08:30 - 08:45 **')
+		d2.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
+
+		d1.warning('** :clock2: 08:40 - 09:00 **')
+		d2.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
+
+		d1.warning('** :clock2: 09:00 - 09:40 **')
+		d2.warning(':grey_exclamation: ' + '** Reunião de produtividade **')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
+
+		d1.warning('** :clock2: 09:40 - 10:20 **')
+		d2.warning(':grey_exclamation: ' + '** Reunião da L751          **')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
+
+		d1.warning('** :clock2: 10:30 - 10:30 **')
+		d2.warning(':grey_exclamation: ' + '** Reunião matinal logística**')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
+
+		d1.warning('** :clock2: 10:20 - 11:00 **')
+		d2.warning(':grey_exclamation: ' + '** Reunião da L752          **')
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
+
+		d1.warning('** :clock2: 11:00 - 11:30 **')
+		d2.warning(':grey_exclamation: ' + '** Reunião de planejamento  **')	
+		#with d3:
+		#	with st.expander('Detalhes do evento'):
+		#		st.warning('Definir detalhes')
 		
 	# index das colunas
 	index = 0
@@ -238,17 +238,17 @@ def main():
 					except:
 						ev0.error('Evento sem informacao')
 
-					with ev0:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					#with ev0:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.info(dados)
 
 				if index == 1:
 					try:	
@@ -259,17 +259,17 @@ def main():
 					except:
 						ev1.error('Evento sem informacao')
 
-					with ev1:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					#with ev1:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.info(dados)
 
 
 				if index == 2:
@@ -281,17 +281,17 @@ def main():
 					except:
 						ev2.error('Evento sem informacao')
 
-					with ev2:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					#with ev2:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.info(dados)
 
 
 				if index == 3:
@@ -303,17 +303,17 @@ def main():
 					except:
 						ev3.error('Evento sem informacao')
 
-					with ev3:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					#with ev3:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.info(dados)
 
 				if index == 4:
 					try:	
@@ -324,17 +324,17 @@ def main():
 					except:
 						ev4.error('Evento sem informacao')
 
-					with ev4:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					#with ev4:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.info(dados)
 
 				if index == 5:
 					try:	
@@ -345,17 +345,17 @@ def main():
 					except:
 						ev5.error('Evento sem informacao')
 
-					with ev5:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					#with ev5:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.info(dados)
 
 
 				if index == 6:
@@ -367,17 +367,17 @@ def main():
 					except:
 						ev6.error('Evento sem informacao')
 
-					with ev6:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.info(dados)
+					#with ev6:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.info(dados)
 
 				if index == 7:
 					try:	
@@ -388,17 +388,17 @@ def main():
 					except:
 						ev7.error('Evento sem informacao')
 
-					with ev7:
-						with st.expander('Detalhes do evento'):
-							# organizador
-							dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-							# pessoas
-							attendees = event['attendees']
-							dados += '**Pessoas: \n **'
-							for people in attendees:
-								dados += '\n' + people['email'].split('@')[0]
-							st.error(dados)
+					#with ev7:
+					#	with st.expander('Detalhes do evento'):
+					#		# organizador
+					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
+#
+					#		# pessoas
+					#		attendees = event['attendees']
+					#		dados += '**Pessoas: \n **'
+					#		for people in attendees:
+					#			dados += '\n' + people['email'].split('@')[0]
+					#		st.error(dados)
 
 				index += 1	
 								
