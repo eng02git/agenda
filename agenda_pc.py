@@ -100,8 +100,8 @@ def main():
 		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		
 		# colunas eventos da fixos e da semana
-		fixo, semana = st.columns(2)
-		d1, d2, d3, s1, s2, s3 = st.columns([1,1.5,1.5,1,2.5,0.5])
+		fixo, semana = st.columns([3, 5])
+		d1, d2, d3, s1, s2, s3 = st.columns([1,1.5,0.5,1,2.5,1.5])
 		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.columns(8)
 		
 	# eventos da semana
