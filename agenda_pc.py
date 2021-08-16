@@ -228,7 +228,7 @@ def main():
 			t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)	
 			
 			# maximo de 8 eventos simultaneos
-			if t_start.day == now_date.day:
+			if t_start..strftime("%d/%m/%Y") == now_date..strftime("%d/%m/%Y"):
 				
 				if index == 0:
 					try:	
