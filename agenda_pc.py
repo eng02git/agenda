@@ -143,7 +143,7 @@ def main():
 				data_selecionada = datetime.datetime.strptime(data_sel, formater2)
 				#semana.write(data_selecionada)
 				
-				if t_start.day == data_selecionada.day:
+				if t_start.strftime("%d/%m/%Y") == data_selecionada.strftime("%d/%m/%Y"):
 					try:	
 						s1.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
 						s2.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
