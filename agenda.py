@@ -26,9 +26,7 @@ def main():
 	"""Shows basic usage of the Google Calendar API.
 	st.writes the start and name of the next 10 events on the user's calendar.
 	"""
-	creds = None
-	if os.path.exists('tokens.json'):
-		creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+	creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
 	# If there are no (valid) credentials available, let the user log in.
 	if not creds or not creds.valid:
