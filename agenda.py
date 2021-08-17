@@ -28,7 +28,7 @@ def main():
 	"""
 
 	#creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-	creds = None
+	creds = False
 	# If there are no (valid) credentials available, let the user log in.
 	if not creds or not creds.valid:
 		if creds and creds.expired and creds.refresh_token:
