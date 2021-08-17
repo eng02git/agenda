@@ -151,7 +151,8 @@ def main():
 						st.success(dados)
 			index_semana += 1
 		if index_semana == 0:
-			st.success('Não há eventos para o dia selecionado')
+			pass
+			#st.success('Não há eventos para o dia selecionado')
 			
 	# eventos fixos
 	if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
