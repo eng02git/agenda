@@ -433,7 +433,7 @@ def main():
 		st.session_state.key = 1
 		
 	# update every  mins
-	st_autorefresh(interval=0.2 * 60 * 1000, key="dataframerefresh")
+	st_autorefresh(interval=0.3 * 60 * 1000, key="dataframerefresh")
 
 			
 	
