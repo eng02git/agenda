@@ -20,7 +20,8 @@ st.set_page_config(
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
-
+service_account_info = json.loads(st.secrets["textkey"])
+credentials = service_account.Credentials.from_service_account_info(service_account_info, scopes=SCOPES)
 
 def main():
 	"""Shows basic usage of the Google Calendar API.
@@ -37,7 +38,7 @@ def main():
 				'credentials.json', SCOPES)
 			creds = flow.run_local_server(port=0)
 
-	service = build('calendar', 'v3', credentials=creds)
+	service = build('calendar', 'v3', credentials=credentials)
 
 	# Call the Calendar API
 	now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
