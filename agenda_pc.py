@@ -44,7 +44,7 @@ def main():
 	# Call the Calendar API
 	now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
 	now_date = datetime.datetime.utcnow()
-	events_result = service.events().list(calendarId='primary', timeMin=now,
+	events_result = service.events().list(calendarId='ambev.eng01@gmail.com', timeMin=now,
 										maxResults=100, singleEvents=True,
 										orderBy='startTime').execute()
 	events = events_result.get('items', [])
