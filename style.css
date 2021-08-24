@@ -1,0 +1,95 @@
+.highlight0 {
+  border-radius: 0.4rem;
+  padding-right: 0.01rem;
+  text-decoration: none;
+  background-color: lightblue;
+  width: 100%;
+}
+
+.highlight1 {
+  border-radius: 0.4rem;
+  padding-right: 0.01rem;
+  text-decoration: none;
+  background-color: lightblue;
+  width: 100%;
+  min-height: 120px;
+}
+
+.fonte1{
+  color: rgb(29, 29, 59);
+  text-align: center;
+  text-shadow: cadetblue;
+}
+
+.highlight2 {
+  border-radius: 0.4rem;
+  padding-right: 0.01rem;
+  text-decoration: none;
+  background-color: rgb(243, 235, 189);
+  width: 100%;
+}
+
+.fonte2{
+  color: rgb(153, 112, 8);
+  text-align: center;
+}
+
+.highlight3 {
+  border-radius: 0.4rem;
+  padding-right: 0.01rem;
+  text-decoration: none;
+  background-color: rgb(163, 224, 163);
+  width: 100%;
+}
+
+.fonte3{
+  color: darkolivegreen;
+  text-align: center;
+}
+
+
+.city{
+  background-color: lightskyblue;
+  
+  border: 2px blue;
+  margin: 1px;
+  padding: 2px;
+  border-radius: 0.4rem;
+}
+
+
+.bold {
+  padding-left: 1rem;
+  font-weight: 700;
+}
+.red {
+  background-color: lightcoral;
+}
+.blue {
+  background-color: lightblue;
+}
+.green{
+  background-color: lightgreen;
+}
+.yellow{
+  background-color: lightyellow;
+}
+.gray {
+  background-color: #9da0a8;
+  text-align: center;
+}
+
+a:link, a:visited {
+  border-radius: 0.4rem;
+  background-color: rgb(235, 235, 235);
+  color: rgb(0, 0, 0);
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: rgb(228, 226, 226);
+}
+
