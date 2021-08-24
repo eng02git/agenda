@@ -13,7 +13,6 @@ import time
 import json
 from datetime import timedelta
 
-
 st.set_page_config(
 	page_title="Calendar",
 	layout="wide",
