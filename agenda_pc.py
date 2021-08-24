@@ -24,10 +24,19 @@ SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 service_account_info = json.loads(st.secrets["textkey"])
 credentials = service_account.Credentials.from_service_account_info(service_account_info, scopes=SCOPES)
 
+def local_css(file_name):
+	with open(file_name) as f:
+		st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
+
+
 def main():
 	"""Shows basic usage of the Google Calendar API.
 	st.writes the start and name of the next 10 events on the user's calendar.
 	"""
+
+	# carrega css para estilo
+	local_css("style.css")
+
 	creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
 	# If there are no (valid) credentials available, let the user log in.
@@ -73,17 +82,6 @@ def main():
 	
 	#automatico = st.sidebar.radio('Alteracao automatica de tela', ['Sim', 'Nao'])
 	automatico = 'Sim'
-	if automatico == 'Nao':
-		#agenda = st.sidebar.radio('Agenda', telas)
-		
-		#if agenda == 'Diaria':
-		#	st.session_state['key'] = 1
-		#elif agenda == 'Semanal':
-		#	st.session_state['key'] = 2
-		pass
-	else:
-		#minutos = st.sidebar.number_input('Intervalo de refresh em minutos', min_value=1, max_value=10, value=5)
-		pass
 	
 	# difine um estado inicial para as telas
 	if 'key' not in st.session_state:
@@ -93,18 +91,17 @@ def main():
 	if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
 		# organizacao dos dados
 		st.subheader('O que está rolando hoje ' + ":alarm_clock:" )
+
 		# mensagem para avisar que nao ha eventos
 		if not events:
 			st.info('Não há mais eventos hoje.')
 		
 		# colunas evento do dia
 		ev0, ev1, ev2, ev3, ev4, ev5, ev6, ev7 = st.columns(8)
-		ev0_, ev1_, ev2_, ev3_, ev4_, ev5_, ev6_, ev7_ = st.columns(8)
 		
 		# colunas eventos da fixos e da semana
-		fixo, semana = st.columns([3, 5])
-		d1, d2, d3, s1, s2, s3 = st.columns([1,1.5,0.5,1,3.5,0.5])
-		#d1_, d2_, d3_, d4_, s1_, s2_, s3_, s4_ = st.columns(8)
+		fixo, semana = st.columns([3.4, 4.6])
+		d1, d2, d3, s1, s2, s3 = st.columns([1,2.3,0.1,1,3.5,0.1])
 
 	# dia atual da semana
 	dia_atual_semana = now_date.today().weekday()
@@ -128,9 +125,6 @@ def main():
 			formater = "%Y-%m-%dT%H:%M:%S"
 			formater2 = "%d/%m/%Y"
 			
-			# dia para mostrar na tela (automatico)
-			
-			
 			# formata data inicial
 			start_time = event['start'].get('dateTime', event['start'].get('date'))
 			t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
@@ -146,21 +140,12 @@ def main():
 				
 				if t_start.strftime("%d/%m/%Y") == data_selecionada.strftime("%d/%m/%Y"):
 					try:	
-						s1.success(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						s2.success(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						s1.markdown('<div class="highlight3"><h2 class="fonte3">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						s2.markdown('<div class="highlight3"><h2 class="fonte3">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 					except:
 						s1.error('Evento sem informacao')
 
-					#with st.expander('Detalhes do evento'):
-						# organizador
-						#dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-
-						# pessoas
-						#attendees = event['attendees']
-						#dados += '**Pessoas: \n **'
-						#for people in attendees:
-							#dados += '\n' + people['email'].split('@')[0]
-						#st.success(dados)
 			index_semana += 1
 		if index_semana == 0:
 			pass
@@ -171,47 +156,26 @@ def main():
 		fixo.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 
 		# eventos fixos
-		d1.warning('** :clock2: 08:30 - 08:45 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião diária do PAF    **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
+		d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('08:30 - 08:45'), unsafe_allow_html=True)
+		d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião diária do PAF'), unsafe_allow_html=True)
 
-		d1.warning('** :clock2: 08:40 - 09:00 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião diária engenharia**')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
+		d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('08:40 - 09:00'), unsafe_allow_html=True)
+		d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião diária engenharia'), unsafe_allow_html=True)
 
-		d1.warning('** :clock2: 09:00 - 09:40 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião de produtividade **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
+		d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('09:00 - 09:40'), unsafe_allow_html=True)
+		d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião de produtividade'), unsafe_allow_html=True)
 
-		d1.warning('** :clock2: 09:40 - 10:20 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião da L751          **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
+		d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('09:40 - 10:20'), unsafe_allow_html=True)
+		d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião da L751'), unsafe_allow_html=True)
 
-		d1.warning('** :clock2: 10:30 - 10:30 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião matinal logística**')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
+		d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('10:00 - 10:30'), unsafe_allow_html=True)
+		d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião matinal logística'), unsafe_allow_html=True)
 
-		d1.warning('** :clock2: 10:20 - 11:00 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião da L752          **')
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
+		d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('10:20 - 11:00'), unsafe_allow_html=True)
+		d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião da L752'), unsafe_allow_html=True)
 
-		d1.warning('** :clock2: 11:00 - 11:30 **')
-		d2.warning(':grey_exclamation: ' + '** Reunião de planejamento  **')	
-		#with d3:
-		#	with st.expander('Detalhes do evento'):
-		#		st.warning('Definir detalhes')
+		d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('11:00 - 11:30'), unsafe_allow_html=True)
+		d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião de planejamento'), unsafe_allow_html=True)
 		
 	# index das colunas
 	index = 0
@@ -234,198 +198,80 @@ def main():
 				
 				if index == 0:
 					try:	
-						ev0.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev0.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev0.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev0.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev0.error('Evento sem informacao')
 
-					#with ev0:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.info(dados)
-
 				if index == 1:
 					try:	
-						#ev1.markdown()
-						ev1.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev1.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev1.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev1.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev1.error('Evento sem informacao')
 
-					#with ev1:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.info(dados)
-
 
 				if index == 2:
 					try:	
-						#ev2.markdown()
-						ev2.info(t_start.strftime(":clock2:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev2.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev2.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev2.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev2.error('Evento sem informacao')
 
-					#with ev2:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.info(dados)
-
 
 				if index == 3:
 					try:	
-						#ev3.markdown()
-						ev3.info(t_start.strftime(":clock3:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev3.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev3.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev3.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev3.error('Evento sem informacao')
 
-					#with ev3:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.info(dados)
-
 				if index == 4:
 					try:	
-						#ev4.markdown()
-						ev4.info(t_start.strftime(":clock4:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev4.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev4.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev4.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev4.error('Evento sem informacao')
 
-					#with ev4:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.info(dados)
 
 				if index == 5:
 					try:	
-						#ev5.markdown()
-						ev5.info(t_start.strftime(":clock5:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev5.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev5.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev5.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev5.error('Evento sem informacao')
 
-					#with ev5:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.info(dados)
-
-
 				if index == 6:
 					try:	
-						#ev6.markdown()
-						ev6.info(t_start.strftime(":clock6:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev6.info(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev6.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev6.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev6.error('Evento sem informacao')
 
-					#with ev6:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.info(dados)
-
 				if index == 7:
 					try:	
-						#ev7.markdown()
-						ev7.error(t_start.strftime(":clock7:" + '** %H:%M **') + ' - ' + t_end.strftime('** %H:%M **'))
-						ev7.error(':grey_exclamation: ' + '**' + event['summary'] + '**')
+						valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+						ev7.markdown('<div class="highlight0"><h2 class="fonte1">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+						ev7.markdown('<div class="highlight1"><h2 class="fonte1">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
 
 					except:
 						ev7.error('Evento sem informacao')
 
-					#with ev7:
-					#	with st.expander('Detalhes do evento'):
-					#		# organizador
-					#		dados = '**Organizador: \n **' + event['organizer'].get('email').split('@')[0] + '\n\n'
-#
-					#		# pessoas
-					#		attendees = event['attendees']
-					#		dados += '**Pessoas: \n **'
-					#		for people in attendees:
-					#			dados += '\n' + people['email'].split('@')[0]
-					#		st.error(dados)
-
 				index += 1	
-								
-		# eventos do dia que nao estao acontecendo agora
-		#if t_start > now_date and t_start.day == now_date.day:
-			
-			#dia.info('Evento')
-			
-		#	try:
-		#		dia.write('Evento: ' + event['summary'] + ' Inicio: ' + t_start.strftime('%H:%M') + ' Fim: ' + t_end.strftime('%H:%M'))
-		#	except:
-		#		dia.error('Evento sem informacao')			
-		
-		# demais eventos da semana
-		#if t_start.day > now_date.day:
-	
-			#semana.info('Evento')
-			
-		#	try:
-		#		semana.write('Evento: ' + event['summary'])
-		#	except:
-		#		semana.error('Evento sem informacao')
-		
-		##	semana.write('Inicio: ' + t_start.strftime('%d-%m-%Y Hora: %H:%M'))
-		#	semana.write('Fim: ' + t_end.strftime('%d-%m-%Y Hora: %H:%M'))
 				
 	if automatico == 'Sim':	
 		st.session_state.key += 1
@@ -436,17 +282,7 @@ def main():
 	# update every  mins
 	st_autorefresh(interval=0.3 * 60 * 1000, key="dataframerefresh")
 
-			
 	
 if __name__ == '__main__':
 	
 	main()
-	
-	# update every  mins
-	
-	
-	# carrega pagina html
-	#htmlfile = open('card1.html', 'r', encoding='utf-8')
-	#source = htmlfile.read()
-	
-	#components.html(source)
