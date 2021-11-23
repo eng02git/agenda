@@ -103,7 +103,7 @@ def main():
         # formata data inicial
         start_time = event['start'].get('dateTime', event['start'].get('date'))
         st.write(start_time)
-        st.write(start_time.len)
+        st.write(len(start_time))
         if start_time.date != '':
             st.write('1')
             t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
