@@ -90,46 +90,8 @@ def main():
     semana.subheader('Eventos da semana ' + '(' + data_sel + ')' + ' :spiral_calendar_pad:' )
     index_semana = 0
 
-    #####################
-    # EVENTOS DA SEMANA #
-    #####################
-
-    for event in events:
-
-        # formato da data
-        formater = "%Y-%m-%dT%H:%M:%S"
-        formater2 = "%d/%m/%Y"
-        
-        # formata data inicial
-        start_time = event['start'].get('dateTime', event['start'].get('date'))
-
-        if len(start_time) == 10:
-            start_time = start_time + 'T07:00:00-03:00'
-            t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
-        else:
-            t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
-
-        # formata data final
-        end_time = event['end'].get('dateTime', event['end'].get('date'))
-        if len(end_time) == 10:
-            end_time = end_time + 'T17:00:00-03:00'
-            t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
-        else:
-            t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
-
-        # data selecionada
-        if data_sel is not None:
-            data_selecionada = datetime.datetime.strptime(data_sel, formater2)
-            
-            if t_start.strftime("%d/%m/%Y") == data_selecionada.strftime("%d/%m/%Y"):
-                try:    
-                    valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
-                    s1.markdown('<div class="highlight3"><h2 class="fonte3">{}</h2></div>'.format(valor), unsafe_allow_html=True)
-                    s2.markdown('<div class="highlight3"><h2 class="fonte3">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
-                except:
-                    s1.error('Evento sem informacao')
-
-        index_semana += 1
+    # index das colunas do diario
+    index = 0
 
     #################
     # EVENTOS FIXOS #
@@ -157,26 +119,69 @@ def main():
 
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('11:00 - 11:30'), unsafe_allow_html=True)
     d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião de planejamento'), unsafe_allow_html=True)
-        
-    ##################
-    # EVENTOS DO DIA #
-    ##################
-    
-    # index das colunas
-    index = 0
+
+    #####################
+    # EVENTOS DA SEMANA #
+    #####################
 
     for event in events:
 
         # formato da data
         formater = "%Y-%m-%dT%H:%M:%S"
-
+        formater2 = "%d/%m/%Y"
+        
         # formata data inicial
         start_time = event['start'].get('dateTime', event['start'].get('date'))
-        t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
+
+        if len(start_time) == 10:
+            start_time = start_time + 'T07:00:00-03:00'
+            t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
+        else:
+            t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
 
         # formata data final
         end_time = event['end'].get('dateTime', event['end'].get('date'))
-        t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)    
+
+        if len(end_time) == 10:
+            end_time = end_time + 'T17:00:00-03:00'
+            t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+        else:
+            t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+
+        # data selecionada
+        if data_sel is not None:
+            data_selecionada = datetime.datetime.strptime(data_sel, formater2)
+            
+            if t_start.strftime("%d/%m/%Y") == data_selecionada.strftime("%d/%m/%Y"):
+                try:    
+                    valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
+                    s1.markdown('<div class="highlight3"><h2 class="fonte3">{}</h2></div>'.format(valor), unsafe_allow_html=True)
+                    s2.markdown('<div class="highlight3"><h2 class="fonte3">{}</h2></div>'.format(event['summary']), unsafe_allow_html=True)
+                except:
+                    s1.error('Evento sem informacao')
+
+        index_semana += 1
+
+
+        
+    ##################
+    # EVENTOS DO DIA #
+    ##################
+    
+   
+
+    # for event in events:
+
+    #     # formato da data
+    #     formater = "%Y-%m-%dT%H:%M:%S"
+
+    #     # formata data inicial
+    #     start_time = event['start'].get('dateTime', event['start'].get('date'))
+    #     t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
+
+    #     # formata data final
+    #     end_time = event['end'].get('dateTime', event['end'].get('date'))
+    #     t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)    
         
         # maximo de 8 eventos simultaneos
         if t_start.strftime("%d/%m/%Y") == now_date.strftime("%d/%m/%Y"):
