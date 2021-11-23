@@ -104,7 +104,7 @@ def main():
         start_time = event['start'].get('dateTime', event['start'].get('date'))
 
         if len(start_time) == 10:
-            start_time = start_time + 'T:00:00:00-03:00'
+            start_time = start_time + 'T00:00:00-03:00'
             t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
         else:
             t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
