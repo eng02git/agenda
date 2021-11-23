@@ -104,14 +104,18 @@ def main():
         start_time = event['start'].get('dateTime', event['start'].get('date'))
 
         if len(start_time) == 10:
-            start_time = start_time + 'T00:00:00-03:00'
+            start_time = start_time + 'T07:00:00-03:00'
             t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
         else:
             t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
 
         # formata data final
         end_time = event['end'].get('dateTime', event['end'].get('date'))
-        t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+        if len(end_time) == 10:
+            end_time = end_time + 'T17:00:00-03:00'
+            t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
+        else:
+            t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
 
         # data selecionada
         if data_sel is not None:
