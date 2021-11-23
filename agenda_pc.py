@@ -1,15 +1,9 @@
 from __future__ import print_function
 import datetime
-#import os.path
 from googleapiclient.discovery import build
-#from google_auth_oauthlib.flow import InstalledAppFlow
-#from google.auth.transport.requests import Request
-#from google.oauth2.credentials import Credentials
 from google.oauth2 import service_account
 import streamlit as st
-#import streamlit.components.v1 as components
 from streamlit_autorefresh import st_autorefresh
-#import time
 import json
 from datetime import timedelta
 
@@ -59,19 +53,15 @@ def main():
     atualizacao_h = now_date - timedelta(hours=3, minutes=0)
     atualizacao = atualizacao_h.strftime("%H:%M:%S")
     
+    # titulo e ultima atualizacao
     tit, update = st.columns([8,2])
-    
     tit.title(titulo)    
     update.write('Última atualização: ' + atualizacao)    
-    tela = 'Todos os eventos'
-    automatico = 'Sim'
-    
-    # difine um estado inicial para as telas
+
+    # difine um estado inicial para as telas (os dias da semana, essa variável define que dia aparece na parte semanal)
     if 'key' not in st.session_state:
         st.session_state['key'] = 1
     
-    # eventos do dia
-    # if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
     # organizacao dos dados
     st.subheader('O que está rolando hoje ' + ":alarm_clock:" )
 
@@ -95,13 +85,17 @@ def main():
     # Lista com as datas restantes excluindo o dia atual
     date_generated = [(now_date + datetime.timedelta(days=x)).strftime("%d/%m/%Y") for x in range(1, restante)]
     
-    # if (tela == 'Todos os eventos') or (tela == 'Eventos da semana'):
-        
+    # define a data baseado no estado atual        
     data_sel = date_generated[(st.session_state.key - 1)]
     semana.subheader('Eventos da semana ' + '(' + data_sel + ')' + ' :spiral_calendar_pad:' )
     index_semana = 0
 
+    #####################
+    # EVENTOS DA SEMANA #
+    #####################
+
     for event in events:
+
         # formato da data
         formater = "%Y-%m-%dT%H:%M:%S"
         formater2 = "%d/%m/%Y"
@@ -117,7 +111,6 @@ def main():
         # data selecionada
         if data_sel is not None:
             data_selecionada = datetime.datetime.strptime(data_sel, formater2)
-            #semana.write(data_selecionada)
             
             if t_start.strftime("%d/%m/%Y") == data_selecionada.strftime("%d/%m/%Y"):
                 try:    
@@ -128,15 +121,13 @@ def main():
                     s1.error('Evento sem informacao')
 
         index_semana += 1
-        # if index_semana == 0:
-        #     pass
-        #     #st.success('Não há eventos para o dia selecionado')
-            
-    # eventos da semana
-    # if (tela == 'Todos os eventos') or (tela == 'Eventos fixos'):
+
+    #################
+    # EVENTOS FIXOS #
+    #################
+
     fixo.subheader('Eventos fixos :lower_left_ballpoint_pen:')
 
-    # eventos fixos
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('08:30 - 08:45'), unsafe_allow_html=True)
     d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião diária do PAF'), unsafe_allow_html=True)
 
@@ -158,10 +149,13 @@ def main():
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('11:00 - 11:30'), unsafe_allow_html=True)
     d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião de planejamento'), unsafe_allow_html=True)
         
+    ##################
+    # EVENTOS DO DIA #
+    ##################
+    
     # index das colunas
     index = 0
 
-    # if (tela == 'Todos os eventos') or (tela == 'Eventos do dia'):
     for event in events:
 
         # formato da data
@@ -255,9 +249,9 @@ def main():
 
             index += 1    
             
-    #if automatico == 'Sim':    
-    st.session_state.key += 1
-        
+    # soma mais um ao dia da semana
+    st.session_state.key += 1      
+      
     if (st.session_state.key - 1) > (restante - 2): #automatico == 'Sim' and
         st.session_state.key = 1
         
@@ -266,5 +260,4 @@ def main():
 
     
 if __name__ == '__main__':
-    
     main()
