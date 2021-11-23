@@ -102,8 +102,12 @@ def main():
         
         # formata data inicial
         start_time = event['start'].get('dateTime', event['start'].get('date'))
-        t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
-
+        st.write(start_time.date)
+        if start_time.date != '':
+            st.write('1')
+            t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
+        else:
+            st.write('2')
         # formata data final
         end_time = event['end'].get('dateTime', event['end'].get('date'))
         t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)
@@ -190,7 +194,6 @@ def main():
                 except:
                     ev1.error('Evento sem informacao')
 
-
             if index == 2:
                 try:    
                     valor = t_start.strftime('%H:%M') + ' - ' + t_end.strftime('%H:%M')
@@ -199,7 +202,6 @@ def main():
 
                 except:
                     ev2.error('Evento sem informacao')
-
 
             if index == 3:
                 try:    
@@ -218,7 +220,6 @@ def main():
 
                 except:
                     ev4.error('Evento sem informacao')
-
 
             if index == 5:
                 try:    
@@ -252,7 +253,7 @@ def main():
     # soma mais um ao dia da semana
     st.session_state.key += 1      
       
-    if (st.session_state.key - 1) > (restante - 2): #automatico == 'Sim' and
+    if (st.session_state.key - 1) > (restante - 2):
         st.session_state.key = 1
         
     # atualiza a cada 30 segundos
