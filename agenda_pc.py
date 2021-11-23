@@ -120,11 +120,11 @@ def main():
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('11:00 - 11:30'), unsafe_allow_html=True)
     d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião de planejamento'), unsafe_allow_html=True)
 
-    #####################
-    # EVENTOS DA SEMANA #
-    #####################
-
     for event in events:
+
+        #####################
+        # EVENTOS DA SEMANA #
+        #####################
 
         # formato da data
         formater = "%Y-%m-%dT%H:%M:%S"
@@ -162,26 +162,9 @@ def main():
 
         index_semana += 1
 
-
-        
-    ##################
-    # EVENTOS DO DIA #
-    ##################
-    
-   
-
-    # for event in events:
-
-    #     # formato da data
-    #     formater = "%Y-%m-%dT%H:%M:%S"
-
-    #     # formata data inicial
-    #     start_time = event['start'].get('dateTime', event['start'].get('date'))
-    #     t_start = datetime.datetime.strptime(start_time.replace('-03:00',''), formater)
-
-    #     # formata data final
-    #     end_time = event['end'].get('dateTime', event['end'].get('date'))
-    #     t_end = datetime.datetime.strptime(end_time.replace('-03:00',''), formater)    
+        ##################
+        # EVENTOS DO DIA #
+        ##################  
         
         # maximo de 8 eventos simultaneos
         if t_start.strftime("%d/%m/%Y") == now_date.strftime("%d/%m/%Y"):
