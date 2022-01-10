@@ -5,3 +5,4 @@ google-auth-oauthlib
 streamlit_autorefresh
 jwt
 google-cloud-storage
+oauth2client
