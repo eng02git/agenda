@@ -109,13 +109,13 @@ def main():
     d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião de produtividade'), unsafe_allow_html=True)
 
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('09:40 - 10:20'), unsafe_allow_html=True)
-    d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião da L752'), unsafe_allow_html=True)
+    d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião da L571'), unsafe_allow_html=True)
 
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('10:00 - 10:30'), unsafe_allow_html=True)
     d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião matinal logística'), unsafe_allow_html=True)
 
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('10:20 - 11:00'), unsafe_allow_html=True)
-    d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião da L751'), unsafe_allow_html=True)
+    d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião da L572'), unsafe_allow_html=True)
 
     d1.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('11:00 - 11:30'), unsafe_allow_html=True)
     d2.markdown('<div class="highlight2"><h2 class="fonte2">{}</h2></div>'.format('Reunião de planejamento'), unsafe_allow_html=True)
