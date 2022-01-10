@@ -1,7 +1,7 @@
 streamlit==0.86.0
 google-api-python-client==2.33.0
 google-auth-httplib2==0.1.0
-google-auth-oauthlib==0.4.5
+google-auth-oauthlib==0.4.6
 streamlit_autorefresh
 jwt
 google-cloud-storage
